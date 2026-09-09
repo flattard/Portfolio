@@ -376,6 +376,50 @@
     </style>
 </head>
 <body>
+    
+<script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    /*
+        * Met à jour le texte du bouton
+        */
+    function updateThemeButton() {
+
+        const isLight =
+            document.documentElement.classList.contains("light-theme");
+
+        themeToggle.textContent =
+            isLight ? "☾ Sombre" : "☀ Clair";
+    }
+
+    /*
+        * Initialise le bouton avec le thème actuel
+        */
+    updateThemeButton();
+
+    /*
+        * Change le thème lorsque l'utilisateur clique
+        */
+    themeToggle.addEventListener("click", () => {
+
+        const isLight =
+            document.documentElement.classList.toggle("light-theme");
+
+        /*
+            * Sauvegarde le choix de l'utilisateur
+            */
+        localStorage.setItem(
+            "portfolio-theme",
+            isLight ? "light" : "dark"
+        );
+
+        /*
+            * Met à jour le bouton
+            */
+        updateThemeButton();
+
+    });
+</script>
 
 <div class="container">
 
@@ -505,47 +549,3 @@
 
     </div>
 </div>
-
-<script>
-    const themeToggle = document.getElementById("themeToggle");
-
-    /*
-        * Met à jour le texte du bouton
-        */
-    function updateThemeButton() {
-
-        const isLight =
-            document.documentElement.classList.contains("light-theme");
-
-        themeToggle.textContent =
-            isLight ? "☾ Sombre" : "☀ Clair";
-    }
-
-    /*
-        * Initialise le bouton avec le thème actuel
-        */
-    updateThemeButton();
-
-    /*
-        * Change le thème lorsque l'utilisateur clique
-        */
-    themeToggle.addEventListener("click", () => {
-
-        const isLight =
-            document.documentElement.classList.toggle("light-theme");
-
-        /*
-            * Sauvegarde le choix de l'utilisateur
-            */
-        localStorage.setItem(
-            "portfolio-theme",
-            isLight ? "light" : "dark"
-        );
-
-        /*
-            * Met à jour le bouton
-            */
-        updateThemeButton();
-
-    });
-</script>
