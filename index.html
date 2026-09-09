@@ -6,7 +6,16 @@
     <meta http-equiv="refresh" content="3;url=accueil.html">
     <title>Florian LATTARD | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    
+    <script>
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+        document.documentElement.classList.add("light-theme");
+    }
+    </script>
 </head>
+
 <body class="splash-body">
 
     <div class="splash-container">

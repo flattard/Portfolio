@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page introuvable - Erreur 404</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+        document.documentElement.classList.add("light-theme");
+    }
+    </script>
+</head>
+
+<body class="splash-body">
+
+    <div class="splash-container">
+        <!-- Message d'erreur typé terminal comme votre accueil -->
+        <div class="splash-hello" style="color: #ff4d4d;">404</div>
+        
+        <p class="splash-welcome" style="margin-bottom: 25px;">
+            Désolé cette page n'existe pas ou a été déplacée.
+        </p>
+
+        <!-- Bouton reprenant vos styles de composants CSS (.btn) -->
+        <a href="./accueil.html" class="btn">
+            Retourner à l'accueil
+        </a>
+    </div>
+
+</body>
+</html>
