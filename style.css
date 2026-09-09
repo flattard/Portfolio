@@ -368,3 +368,53 @@ body:has(.all-projects-page:target) #home {
         font-size: 0.75rem;
     }
 }
+
+/* ==========================================================================
+   8. PAGE D'ACCUEIL DE BIENVENUE (Splash Screen index.html)
+   ========================================================================== */
+.splash-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.splash-container {
+    font-family: var(--font-mono);
+    padding: 20px;
+}
+
+.splash-hello {
+    color: var(--accent-blue);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.splash-welcome {
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+
+.splash-welcome span {
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+/* Petit bonus optionnel : curseur qui clignote style terminal */
+.splash-hello::before {
+    content: ">_ ";
+}
+
+@media (max-width: 768px) {
+    .splash-hello {
+        font-size: 2.2rem;
+    }
+    .splash-welcome {
+        font-size: 1rem;
+    }
+}

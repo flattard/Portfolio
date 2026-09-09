@@ -1,203 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3;url=accueil.html">
+    <title>Florian LATTARD | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio // Florian LATTARD</title>
-
-    <!--
-        Applique immédiatement le thème sauvegardé.
-        Cela évite le flash du thème sombre avant le passage au thème clair.
-    -->
-    <script>
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "light") {
-        document.documentElement.classList.add("light-theme");
-    }
-    </script>
 </head>
+<body class="splash-body">
 
-
-<body>
-    <div class="container">
-
-        <!-- NAVIGATION -->
-        <nav class="navbar" aria-label="Navigation principale">
-
-            <div class="nav-links">
-
-                <a href="index.html" class="active">
-                    01// Accueil
-                </a>
-
-                <a href="projets.html">
-                    02// Projets
-                </a>
-
-            </div>
-
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                type="button"
-                aria-label="Changer de thème"
-            >
-                ☀ Clair
-            </button>
-
-        </nav>
-
-        <!-- EN-TÊTE -->
-        <header>
-            <!-- Votre nom en ASCII Art (Style adouci) -->
-            <pre class="ascii-art">
-    ░█████████                         ░██        ░████            ░██ ░██           
-    ░██     ░██                        ░██       ░██               ░██               
-    ░██     ░██  ░███████  ░██░████ ░████████ ░████████  ░███████  ░██ ░██ ░███████  
-    ░█████████  ░██    ░██ ░███        ░██       ░██    ░██    ░██ ░██ ░██░██    ░██ 
-    ░██         ░██    ░██ ░██         ░██       ░██    ░██    ░██ ░██ ░██░██    ░██ 
-    ░██         ░██    ░██ ░██         ░██       ░██    ░██    ░██ ░██ ░██░██    ░██ 
-    ░██          ░███████  ░██          ░████    ░██     ░███████  ░██ ░██ ░███████  </pre>
-            <h1>Florian LATTARD</h1>
-            <div class="subtitle">Étudiant en Informatique - Spécialisation <span>Système, Réseau & Cybersécurité</span></div>
-            <div class="status-badge">
-                <span class="status-dot"></span> Recherche stage de fin d'études
-            </div>
-        </header>
-
-        <!-- GRILLE DE CONTENU -->
-        <div class="grid">
-            
-            <!-- COLONNE GAUCHE : PROJETS -->
-            <main>
-                <section id="about">
-                    <h2>01//_A_propos</h2>
-                    <p style="color: var(--text-main); font-size: 1rem;">
-                        Passionné par les infrastructures systèmes et l'automatisation (DevOps). J'allie mes compétences en administration réseau à la programmation (Python, C++) pour concevoir des environnements sécurisés, monitorés et scalables.
-                    </p>
-                </section>
-
-                <section id="projects">
-                    <h2>02//_Projets_Recents</h2>
-
-                    <!-- Projet 1 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-title">Infrastructure Home Lab</span>
-                            <span class="project-tech">Docker / Ansible</span>
-                        </div>
-                        <p class="project-desc">Automatisation globale du déploiement d'un cluster réseau local (DNS privé, base de données, reverse proxy sécurisé) via des playbooks Ansible.</p>
-                        <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
-                    </div>
-
-                    <!-- Projet 2 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-title">Script de Monitoring Serveur</span>
-                            <span class="project-tech">Python / Linux</span>
-                        </div>
-                        <p class="project-desc">Conception d'un agent de surveillance léger qui analyse l'état du système (CPU, RAM) et envoie des alertes instantanées sur Discord en cas d'anomalie.</p>
-                        <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
-                    </div>
-
-                    <!-- Projet 3 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-title">Scanner de Ports Réseau</span>
-                            <span class="project-tech">C++ / Sockets</span>
-                        </div>
-                        <p class="project-desc">Développement d'un outil d'audit asynchrone en C++ natif permettant de scanner rapidement les ports ouverts d'une machine cible.</p>
-                        <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
-                    </div>
-
-                    <div class="projects-actions">
-                        <a href="projets.html" class="btn">Voir tous mes projets →</a>
-                    </div>
-                </section>
-            </main>
-
-            <!-- COLONNE DROITE : COMPÉTENCES & CONTACT -->
-            <aside>
-                <section id="skills">
-                    <h2>03//_SKILLS</h2>
-                    
-                    <div class="skill-group">
-                        <div class="skill-label">Système</div>
-                        <div class="skill-tags">Linux (Debian, Ubuntu), Docker, Ansible, Git</div>
-                    </div>
-
-                    <div class="skill-group">
-                        <div class="skill-label">Réseau & Cyber</div>
-                        <div class="skill-tags">Routing, Firewalls, Wireshark, Analyse de logs</div>
-                    </div>
-                </section>
-                
-                <section id="contact">
-                    <h2>04//_CONTACT</h2>
-                    
-                    <div class="contact-list">
-                        <li>[LinkedIn] <a href="https://www.linkedin.com/in/florian-lattard-71862929b/" target="_blank">://linkedin.com</a></li>
-                        <li>[GitHub] <a href="https://github.com/flattard/" target="_blank">://github.com</a></li>
-                        <li>[email] <a href="lattardf.pro@gmail.com">lattardf.pro@gmail.com</a></li>
-                        <li>[Mobile] <a href="+33 6 41 02 39 90">+33 6 41 02 39 90</a></li>
-                        <li>[CV] <a href="./assets/LATTARD_Florian_CV.pdf" target="_blank">Télécharger le cv en pdf</a></li>
-                    </div>
-                </section>
-            </aside>
-
-        </div>
+    <div class="splash-container">
+        <div class="splash-hello">Hello World!</div>
+        <div class="splash-welcome">Bienvenue sur le portfolio de <span>Florian LATTARD</span></div>
     </div>
 
-    <!-- ================================
-         GESTION DU THEME
-    ================================= -->
     <script>
-        const themeToggle = document.getElementById("themeToggle");
-
-        /*
-         * Met à jour le texte du bouton
-         */
-        function updateThemeButton() {
-
-            const isLight =
-                document.documentElement.classList.contains("light-theme");
-
-            themeToggle.textContent =
-                isLight ? "☾ Sombre" : "☀ Clair";
-        }
-
-        /*
-         * Initialise le bouton avec le thème actuel
-         */
-        updateThemeButton();
-
-        /*
-         * Change le thème lorsque l'utilisateur clique
-         */
-        themeToggle.addEventListener("click", () => {
-
-            const isLight =
-                document.documentElement.classList.toggle("light-theme");
-
-            /*
-             * Sauvegarde le choix de l'utilisateur
-             */
-            localStorage.setItem(
-                "portfolio-theme",
-                isLight ? "light" : "dark"
-            );
-
-            /*
-             * Met à jour le bouton
-             */
-            updateThemeButton();
-
-        });
+        setTimeout(function() {
+            window.location.href = "accueil.html";
+        }, 1000);
     </script>
 </body>
-
 </html>
