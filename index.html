@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio // Florian LATTARD</title>
+
+    <!--
+        Applique immédiatement le thème sauvegardé.
+        Cela évite le flash du thème sombre avant le passage au thème clair.
+    -->
+    <script>
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+        document.documentElement.classList.add("light-theme");
+    }
+    </script>
+
     <style>
         :root {
             --bg-color: #0d1117;       /* Gris foncé doux (style GitHub) */
@@ -16,6 +29,22 @@
             --accent-green: #3fb950;    /* Vert discret pour les badges */
             --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            --header-text: #ffffff;
+            --nav-bg: rgba(13, 17, 23, 0.88);
+            --button-bg: rgba(88, 166, 255, 0.10);
+        }
+
+        html.light-theme {
+            --bg-color: #f6f8fa;
+            --card-bg: #ffffff;
+            --border-color: #d0d7de;
+            --text-main: #24292f;
+            --text-muted: #57606a;
+            --accent-blue: #0969da;
+            --accent-green: #1a7f37;
+            --header-text: #1f2328;
+            --nav-bg: rgba(246, 248, 250, 0.92);
+            --button-bg: rgba(9, 105, 218, 0.08);
         }
 
         * {
@@ -30,6 +59,69 @@
             font-family: var(--font-sans);
             padding: 40px 20px;
             line-height: 1.6;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 15px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 35px;
+            padding: 10px 14px;
+            background: var(--nav-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 7px 10px;
+            border-radius: 5px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-blue);
+            background: var(--button-bg);
+        }
+
+        .theme-toggle {
+            border: 1px solid var(--border-color);
+            background: var(--button-bg);
+            color: var(--text-main);
+            border-radius: 6px;
+            padding: 7px 10px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
         }
 
         .container {
@@ -60,7 +152,7 @@
 
         h1 {
             font-size: 1.8rem;
-            color: #ffffff;
+            color: var(--header-text);
             margin-bottom: 5px;
         }
 
@@ -116,7 +208,7 @@
 
         h2 {
             font-size: 1.2rem;
-            color: #ffffff;
+            color: var(--header-text);
             margin-bottom: 20px;
             padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color);
@@ -149,7 +241,7 @@
         }
 
         .project-title {
-            color: #ffffff;
+            color: var(--header-text);
             font-size: 1.1rem;
             font-weight: 600;
         }
@@ -183,6 +275,65 @@
             text-decoration: underline;
         }
 
+        .projects-actions {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 5px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--accent-blue);
+            background: var(--button-bg);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            padding: 9px 14px;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: rgba(88, 166, 255, 0.16);
+        }
+
+        .all-projects-page {
+            display: none;
+        }
+
+        .all-projects-page:target {
+            display: block;
+        }
+
+        body:has(.all-projects-page:target) #home {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a {
+                padding: 6px 7px;
+            }
+
+            .theme-toggle {
+                font-size: 0.75rem;
+            }
+        }
+
         /* Compétences (Stack) */
         .skill-group {
             background-color: var(--card-bg);
@@ -193,7 +344,7 @@
         }
 
         .skill-label {
-            color: #ffffff;
+            color: var(--header-text);
             font-weight: 600;
             font-size: 0.95rem;
             margin-bottom: 8px;
@@ -225,8 +376,78 @@
     </style>
 </head>
 <body>
+    
+<script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    /*
+        * Met à jour le texte du bouton
+        */
+    function updateThemeButton() {
+
+        const isLight =
+            document.documentElement.classList.contains("light-theme");
+
+        themeToggle.textContent =
+            isLight ? "☾ Sombre" : "☀ Clair";
+    }
+
+    /*
+        * Initialise le bouton avec le thème actuel
+        */
+    updateThemeButton();
+
+    /*
+        * Change le thème lorsque l'utilisateur clique
+        */
+    themeToggle.addEventListener("click", () => {
+
+        const isLight =
+            document.documentElement.classList.toggle("light-theme");
+
+        /*
+            * Sauvegarde le choix de l'utilisateur
+            */
+        localStorage.setItem(
+            "portfolio-theme",
+            isLight ? "light" : "dark"
+        );
+
+        /*
+            * Met à jour le bouton
+            */
+        updateThemeButton();
+
+    });
+</script>
 
 <div class="container">
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" aria-label="Navigation principale">
+
+        <div class="nav-links">
+
+            <a href="index.html" class="active">
+                01// Accueil
+            </a>
+
+            <a href="projets.html">
+                02// Projets
+            </a>
+
+        </div>
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Changer de thème"
+        >
+            ☀ Clair
+        </button>
+
+    </nav>
 
     <!-- EN-TÊTE -->
     <header>
@@ -290,6 +511,10 @@
                     <p class="project-desc">Développement d'un outil d'audit asynchrone en C++ natif permettant de scanner rapidement les ports ouverts d'une machine cible.</p>
                     <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
                 </div>
+
+                <div class="projects-actions">
+                    <a href="projets.html" class="btn">Voir tous mes projets →</a>
+                </div>
             </section>
         </main>
 
@@ -324,4 +549,3 @@
 
     </div>
 </div>
-
