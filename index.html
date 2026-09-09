@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio // Florian LATTARD</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;       /* Gris foncé doux (style GitHub) */
+            --card-bg: #161b22;        /* Fond des cartes légèrement plus clair */
+            --border-color: #30363d;   /* Bordures discrètes */
+            --text-main: #c9d1d9;      /* Blanc cassé reposant */
+            --text-muted: #8b949e;     /* Gris pour les textes secondaires */
+            --accent-blue: #58a6ff;     /* Bleu doux pour les liens et titres */
+            --accent-green: #3fb950;    /* Vert discret pour les badges */
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        /* En-tête */
+        header {
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        pre.ascii-art {
+            color: var(--accent-blue);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            line-height: 1.2;
+            font-weight: bold;
+            overflow-x: auto;
+            margin-bottom: 25px;
+            background: rgba(88, 166, 255, 0.03);
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(88, 166, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .subtitle span {
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        /* Badge Statut */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(63, 185, 80, 0.1);
+            color: var(--accent-green);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 15px;
+            border: 1px solid rgba(63, 185, 80, 0.2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+        }
+
+        /* Layout en Grille */
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Cartes de projets */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #444c56;
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .project-tech {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            background: rgba(88, 166, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .project-desc {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* Liens / Boutons */
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Compétences (Stack) */
+        .skill-group {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .skill-label {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .skill-tags {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contacts */
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .contact-list a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- EN-TÊTE -->
+    <header>
+        <!-- Votre nom en ASCII Art (Style adouci) -->
+        <pre class="ascii-art">
+░█████████                         ░██        ░████            ░██ ░██           
+░██     ░██                        ░██       ░██               ░██               
+░██     ░██  ░███████  ░██░████ ░████████ ░████████  ░███████  ░██ ░██ ░███████  
+░█████████  ░██    ░██ ░███        ░██       ░██    ░██    ░██ ░██ ░██░██    ░██ 
+░██         ░██    ░██ ░██         ░██       ░██    ░██    ░██ ░██ ░██░██    ░██ 
+░██         ░██    ░██ ░██         ░██       ░██    ░██    ░██ ░██ ░██░██    ░██ 
+░██          ░███████  ░██          ░████    ░██     ░███████  ░██ ░██ ░███████  </pre>
+        <h1>Florian LATTARD</h1>
+        <div class="subtitle">Étudiant en Informatique - Spécialisation <span>Système, Réseau & Cybersécurité</span></div>
+        <div class="status-badge">
+            <span class="status-dot"></span> Recherche stage de fin d'études
+        </div>
+    </header>
+
+    <!-- GRILLE DE CONTENU -->
+    <div class="grid">
+        
+        <!-- COLONNE GAUCHE : PROJETS -->
+        <main>
+            <section id="about">
+                <h2>01//_A_propos</h2>
+                <p style="color: var(--text-main); font-size: 1rem;">
+                    Passionné par les infrastructures systèmes et l'automatisation (DevOps). J'allie mes compétences en administration réseau à la programmation (Python, C++) pour concevoir des environnements sécurisés, monitorés et scalables.
+                </p>
+            </section>
+
+            <section id="projects">
+                <h2>02//_Projets_Recents</h2>
+
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Infrastructure Home Lab</span>
+                        <span class="project-tech">Docker / Ansible</span>
+                    </div>
+                    <p class="project-desc">Automatisation globale du déploiement d'un cluster réseau local (DNS privé, base de données, reverse proxy sécurisé) via des playbooks Ansible.</p>
+                    <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Script de Monitoring Serveur</span>
+                        <span class="project-tech">Python / Linux</span>
+                    </div>
+                    <p class="project-desc">Conception d'un agent de surveillance léger qui analyse l'état du système (CPU, RAM) et envoie des alertes instantanées sur Discord en cas d'anomalie.</p>
+                    <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-title">Scanner de Ports Réseau</span>
+                        <span class="project-tech">C++ / Sockets</span>
+                    </div>
+                    <p class="project-desc">Développement d'un outil d'audit asynchrone en C++ natif permettant de scanner rapidement les ports ouverts d'une machine cible.</p>
+                    <a href="https://github.com" target="_blank" class="btn-link">Voir le projet →</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- COLONNE DROITE : COMPÉTENCES & CONTACT -->
+        <aside>
+            <section id="skills">
+                <h2>03//_SKILLS</h2>
+                
+                <div class="skill-group">
+                    <div class="skill-label">Système</div>
+                    <div class="skill-tags">Linux (Debian, Ubuntu), Docker, Ansible, Git</div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-label">Réseau & Cyber</div>
+                    <div class="skill-tags">Routing, Firewalls, Wireshark, Analyse de logs</div>
+                </div>
+            </section>
+            
+            <section id="contact">
+                <h2>04//_CONTACT</h2>
+                
+                <div class="contact-list">
+                    <li>[NET] <a href="https://www.linkedin.com/in/florian-lattard-71862929b/" target="_blank">://linkedin.com</a></li>
+                    <li>[GIT] <a href="https://github.com/flattard/" target="_blank">://github.com</a></li>
+                    <li>[MAIL] <a href="lattardf.pro@gmail.com">lattardf.pro@gmail.com</a></li>
+                    <li>[MAIL] <a href="+33 6 41 02 39 90">+33 6 41 02 39 90</a></li>
+                    <li>[CV] <a href="./assets/LATTARD_Florian_CV.pdf" target="_blank">Télécharger le cv en pdf</a></li>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+</div>
+
