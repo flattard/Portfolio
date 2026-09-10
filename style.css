@@ -418,3 +418,25 @@ body:has(.all-projects-page:target) #home {
         font-size: 1rem;
     }
 }
+
+
+.collapse-inline {
+    display: none;
+}
+.collapse-inline.expanded {
+    display: inline;
+}
+
+.collapse-block {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out; /* Durée de fermeture : 400ms */
+}
+.collapse-block.expanded {
+    max-height: 1200px;
+    transition: max-height 0.6s ease-in;
+}
+
+#toggle-about-btn:hover {
+    opacity: 1;
+}

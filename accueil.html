@@ -76,10 +76,47 @@
             <main>
                 <section id="about">
                     <h2>01//_A_propos</h2>
-                    <p style="color: var(--text-main); font-size: 1rem;">
-                        Passionné par les infrastructures systèmes et l'automatisation (DevOps). J'allie mes compétences en administration réseau à la programmation (Python, C++) pour concevoir des environnements sécurisés, monitorés et scalables.
-                    </p>
+                    
+                    <div class="about-text-container" style="color: var(--text-main); font-size: 1rem;">
+                        <!-- Tout le premier paragraphe reste dans une seule et unique balise <p> -->
+                        <p>
+                            Le domaine de l’informatique est tellement vaste mais justement c'est ce que j'aime ! Ce qui m'attire précisément c'est de décortiquer les systèmes<span id="text-dots">...</span><span id="more-text-inline" class="collapse-inline"> pour comprendre exactement comment ils tournent, comment ils ont été faits et pourquoi.</span>
+                            
+                            <!-- Zone où le bouton se place quand le texte est FERMÉ -->
+                            <span id="btn-inline-placeholder">
+                                <button id="toggle-about-btn" onclick="toggleAboutText()" style="
+                                    background: none;
+                                    border: none;
+                                    padding: 0;
+                                    margin-left: 5px;
+                                    color: var(--text-main);
+                                    opacity: 0.7;
+                                    font-family: inherit;
+                                    font-size: 0.85rem;
+                                    cursor: pointer;
+                                    text-decoration: underline;
+                                    display: inline;
+                                    transition: opacity 0.2s ease;
+                                ">Voir plus ↓</button>
+                            </span>
+                        </p>
+
+                        <!-- Les paragraphes suivants restent dans le bloc qui se déroule vers le bas -->
+                        <div id="more-text-block" class="collapse-block">
+                            <p><br>Ce qui m'aide le plus c'est de passer de la théorie à la pratique. Que ce soit lors de mes projets personnels, à l'école, ou sur le terrain en stage au sein d'une ESN, ma démarche reste d'installer, configurer et administrer différents environnements. Mais ce n'est qu'un début. Je souhaite constamment aller plus loin : approfondir ce que je maîtrise déjà, mais aussi explorer ce que je ne connais pas encore.</p>
+
+                            <p><br>C’est cette volonté de progresser qui m’a conduit à l’IUT Nord Franche-Comté. Je veux atteindre un niveau de connaissances techniques pour ne plus buter sur les blocages, mais être capable de trouver une solution, voire de la créer moi-même. Je suis sûr que c’est en se frottant aux pannes et par la réflexion qu'on y apporte que l’on grandit réellement en compétences.</p>
+
+                            <h3 style="margin-top: 1.5rem; font-size: 1.1rem; letter-spacing: 1px;">--- OBJECTIF STAGE ---</h3>
+                            
+                            <p>Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en pratique mes acquis et les enseignements de mon BUT3 R&T Cyber. Mon but est de mettre cette énergie au service de vos objectifs techniques et de votre entreprise. C'est en faisant équipe que nous ferons face aux problématiques que nous rencontrerons sur le terrain.</p>
+                            
+                            <!-- Zone où le bouton va se déplacer quand le texte est OUVERT -->
+                            <div id="btn-bottom-placeholder" style="margin-top: 1rem;"></div>
+                        </div>
+                    </div>
                 </section>
+
 
                 <section id="projects">
                     <h2>02//_Projets_Recents</h2>
@@ -197,6 +234,36 @@
             updateThemeButton();
 
         });
+
+        function toggleAboutText() {
+            const textInline = document.getElementById('more-text-inline');
+            const textBlock = document.getElementById('more-text-block');
+            const btn = document.getElementById('toggle-about-btn');
+            const dots = document.getElementById('text-dots');
+            
+            const inlinePlaceholder = document.getElementById('btn-inline-placeholder');
+            const bottomPlaceholder = document.getElementById('btn-bottom-placeholder');
+            
+            textBlock.classList.toggle('expanded');
+            
+            if (textBlock.classList.contains('expanded')) {
+                // OUVERTURE : Action immédiate
+                textInline.classList.add('expanded');
+                btn.innerHTML = 'Voir moins ↑';
+                dots.style.display = 'none';
+                bottomPlaceholder.appendChild(btn); 
+            } else {
+                // FERMETURE : Le bouton change de texte immédiatement...
+                btn.innerHTML = 'Voir plus ↓';
+                
+                // ... mais il attend 400ms (la fin de l'animation) pour remonter et afficher les "..."
+                setTimeout(() => {
+                    textInline.classList.remove('expanded');
+                    dots.style.display = 'inline';
+                    inlinePlaceholder.appendChild(btn); 
+                }, 400); // 400 millisecondes = 0.4s (calqué sur le CSS)
+            }
+        }
     </script>
 </body>
 
