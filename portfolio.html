@@ -1,251 +1,200 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil // Florian LATTARD</title>
+    <title>Florian LATTARD - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-
-    <!--
-        Applique immédiatement le thème sauvegardé.
-        Cela évite le flash du thème sombre avant le passage au thème clair.
-    -->
-    <script>
-    const savedTheme = localStorage.getItem("portfolio-theme");
-
-    if (savedTheme === "light") {
-        document.documentElement.classList.add("light-theme");
-    }
-    </script>
 </head>
-
-
 <body>
-    <div class="container">
 
-        <!-- NAVIGATION -->
-        <nav class="navbar" aria-label="Navigation principale">
-
-            <div class="nav-links">
-
-                <a href="accueil.html" class="active">
-                    01// Accueil
-                </a>
-
-                <a href="projets.html">
-                    02// Projets
-                </a>
-
-            </div>
-
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                type="button"
-                aria-label="Changer de thème"
-            >
-                ☀ Clair
-            </button>
-
-        </nav>
-
-        <!-- GRILLE DE CONTENU -->
-        <div class="grid">
-            
-            <!-- COLONNE GAUCHE : PROJETS -->
-            <main>
-                <section id="about">
-                    <h2>01//_A_propos</h2>
-                    
-                    <div class="about-text-container" style="color: var(--text-main); font-size: 1rem;">
-                        <!-- Tout le premier paragraphe reste dans une seule et unique balise <p> -->
-                        <p>
-                            Le domaine de l’informatique est tellement vaste mais justement c'est ce que j'aime ! Ce qui m'attire précisément c'est de décortiquer les systèmes<span id="text-dots">...</span><span id="more-text-inline" class="collapse-inline"> pour comprendre exactement comment ils tournent, comment ils ont été faits et pourquoi.</span>
-                            
-                            <!-- Zone où le bouton se place quand le texte est FERMÉ -->
-                            <span id="btn-inline-placeholder">
-                                <button id="toggle-about-btn" onclick="toggleAboutText()" style="
-                                    background: none;
-                                    border: none;
-                                    padding: 0;
-                                    margin-left: 5px;
-                                    color: var(--text-main);
-                                    opacity: 0.7;
-                                    font-family: inherit;
-                                    font-size: 0.85rem;
-                                    cursor: pointer;
-                                    text-decoration: underline;
-                                    display: inline;
-                                    transition: opacity 0.2s ease;
-                                ">Voir plus ↓</button>
-                            </span>
-                        </p>
-
-                        <!-- Les paragraphes suivants restent dans le bloc qui se déroule vers le bas -->
-                        <div id="more-text-block" class="collapse-block">
-                            <p><br>Ce qui m'aide le plus c'est de passer de la théorie à la pratique. Que ce soit lors de mes projets personnels, à l'école, ou sur le terrain en stage au sein d'une ESN, ma démarche reste d'installer, configurer et administrer différents environnements. Mais ce n'est qu'un début. Je souhaite constamment aller plus loin : approfondir ce que je maîtrise déjà, mais aussi explorer ce que je ne connais pas encore.</p>
-
-                            <p><br>C’est cette volonté de progresser qui m’a conduit à l’IUT Nord Franche-Comté. Je veux atteindre un niveau de connaissances techniques pour ne plus buter sur les blocages, mais être capable de trouver une solution, voire de la créer moi-même. Je suis sûr que c’est en se frottant aux pannes et par la réflexion qu'on y apporte que l’on grandit réellement en compétences.</p>
-
-                            <h3 style="margin-top: 1.5rem; font-size: 1.1rem; letter-spacing: 1px;">--- OBJECTIF STAGE ---</h3>
-                            
-                            <p>Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en pratique mes acquis et les enseignements de mon BUT3 R&T Cyber. Mon but est de mettre cette énergie au service de vos objectifs techniques et de votre entreprise. C'est en faisant équipe que nous ferons face aux problématiques que nous rencontrerons sur le terrain.</p>
-                            
-                            <!-- Zone où le bouton va se déplacer quand le texte est OUVERT -->
-                            <div id="btn-bottom-placeholder" style="margin-top: 1rem;"></div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <section id="projects">
-                    <h2>02//_Projets_Recents</h2>
-
-                    <!-- Projet 1 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-title">Infrastructure Home Lab</span>
-                            <span class="project-tech">Docker / Ansible</span>
-                        </div>
-                        <p class="project-desc">Automatisation globale du déploiement d'un cluster réseau local (DNS privé, base de données, reverse proxy sécurisé) via des playbooks Ansible.</p>
-                        <a href="https://github.com" target="_blank" class="btn-link">Voir ce projet →</a>
-                    </div>
-
-                    <!-- Projet 2 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-title">Script de Monitoring Serveur</span>
-                            <span class="project-tech">Python / Linux</span>
-                        </div>
-                        <p class="project-desc">Conception d'un agent de surveillance léger qui analyse l'état du système (CPU, RAM) et envoie des alertes instantanées sur Discord en cas d'anomalie.</p>
-                        <a href="https://github.com" target="_blank" class="btn-link">Voir ce projet →</a>
-                    </div>
-
-                    <!-- Projet 3 -->
-                    <div class="project-card">
-                        <div class="project-header">
-                            <span class="project-title">Scanner de Ports Réseau</span>
-                            <span class="project-tech">C++ / Sockets</span>
-                        </div>
-                        <p class="project-desc">Développement d'un outil d'audit asynchrone en C++ natif permettant de scanner rapidement les ports ouverts d'une machine cible.</p>
-                        <a href="https://github.com" target="_blank" class="btn-link">Voir ce projet →</a>
-                    </div>
-
-                    <div class="projects-actions">
-                        <a href="projets.html" class="btn">Voir tous mes projets →</a>
-                    </div>
-                </section>
-            </main>
-
-            <!-- COLONNE DROITE : COMPÉTENCES & CONTACT -->
-            <aside>
-                <section id="skills">
-                    <h2>03//_SKILLS</h2>
-                    
-                    <div class="skill-group">
-                        <div class="skill-label">Système</div>
-                        <div class="skill-tags">Linux (Debian, Ubuntu), Docker, Ansible, Git</div>
-                    </div>
-
-                    <div class="skill-group">
-                        <div class="skill-label">Réseau & Cyber</div>
-                        <div class="skill-tags">Routing, Firewalls, Wireshark, Analyse de logs</div>
-                    </div>
-                </section>
-                
-                <section id="contact">
-                    <h2>04//_CONTACT</h2>
-                    
-                    <div class="contact-list">
-                        <li>[LinkedIn] <a href="https://www.linkedin.com/in/florian-lattard-71862929b/" target="_blank">Mon profil LinkedIn</a></li>
-                        <li>[GitHub] <a href="https://github.com/flattard/" target="_blank">Mon profil GitHub</a></li>
-                        <li>[email] <a href="lattardf.pro@gmail.com">lattardf.pro@gmail.com</a></li>
-                        <li>[Mobile] <a href="+33 6 41 02 39 90">+33 6 41 02 39 90</a></li>
-                        <li>[CV] <a href="./assets/LATTARD_Florian_CV.pdf" target="_blank">Visualiser mon CV</a></li>
-                    </div>
-                </section>
-            </aside>
-
+    <!-- Barre latérale fixe à gauche -->
+    <aside>
+        <div class="profile">
+            <h1>Florian LATTARD</h1>
+            <div class="subtitle">Étudiant en Informatique<br>Spécialisation Système, Réseau & Cybersécurité</div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos & Compétences</a></li>
+                    <li><a href="#projets">Mes Réalisations</a></li>
+                    <li><a href="#parcours">Parcours Scolaire</a></li>
+                    <li><a href="#experiences">Expériences Pro</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+        <footer>
+            <small style="color: #8b949e;">© 2026 - Florian Lattard</small>
+        </footer>
+    </aside>
 
-    <!-- ================================
-         GESTION DU THEME
-    ================================= -->
-    <script>
-        const themeToggle = document.getElementById("themeToggle");
+    <!-- Contenu à droite -->
+    <main>
+        <!-- Section Accueil -->
+        <section id="accueil">
+            <span class="badge-stage">Recherche de stage de fin d'études (16 semaines)</span>
+            <h2>Bonjour, je suis Florian Lattard</h2>
+            <p>Actuellement en 3ème année de <strong>BUT Réseaux & Télécommunications</strong> à l'<strong>IUT Nord Franche-Comté</strong>, je me passionne pour la compréhension profonde des systèmes et le durcissement des architectures IT.</p>
+            <p>Découvrez mon parcours académique, mes projets professionnels, ainsi que mes diverses expériences opérationnelles en administration système et gestion de réseaux informatiques.</p>
+        </section>
 
-        /*
-         * Met à jour le texte du bouton
-         */
-        function updateThemeButton() {
-
-            const isLight =
-                document.documentElement.classList.contains("light-theme");
-
-            themeToggle.textContent =
-                isLight ? "☾ Sombre" : "☀ Clair";
-        }
-
-        /*
-         * Initialise le bouton avec le thème actuel
-         */
-        updateThemeButton();
-
-        /*
-         * Change le thème lorsque l'utilisateur clique
-         */
-        themeToggle.addEventListener("click", () => {
-
-            const isLight =
-                document.documentElement.classList.toggle("light-theme");
-
-            /*
-             * Sauvegarde le choix de l'utilisateur
-             */
-            localStorage.setItem(
-                "portfolio-theme",
-                isLight ? "light" : "dark"
-            );
-
-            /*
-             * Met à jour le bouton
-             */
-            updateThemeButton();
-
-        });
-
-        function toggleAboutText() {
-            const textInline = document.getElementById('more-text-inline');
-            const textBlock = document.getElementById('more-text-block');
-            const btn = document.getElementById('toggle-about-btn');
-            const dots = document.getElementById('text-dots');
+        <section id="apropos">
+            <h2>À propos & Compétences</h2>
+            <p><em>"Le domaine de l’informatique est tellement vaste mais justement c'est ce que j'aime ! Ce qui m'attire précisément c'est de décortiquer les systèmes pour comprendre exactement comment ils tournent, comment ils ont été faits et pourquoi."</em></p>
+            <p>Ce qui m'aide le plus c'est de passer de la théorie à la pratique. Que ce soit lors de mes projets personnels, à l'école, ou sur le terrain en stage au sein d'une ESN, ma démarche reste d'installer, configurer et administrer différents environnements. Mais ce n'est qu'un début. Je souhaite constamment aller plus loin : approfondir ce que je maîtrise déjà, mais aussi explorer ce que je ne connais pas encore.</p>
+            <p>C’est cette volonté de progresser qui m’a conduit à l’IUT Nord Franche-Comté. Je veux atteindre un niveau de connaissances techniques pour ne plus buter sur les blocages, mais être capable de trouver une solution, voire de la créer moi-même. Je suis sûr que c’est en se frottant aux pannes et par la réflexion qu'on y apporte que l’on grandit réellement en compétences.</p>
             
-            const inlinePlaceholder = document.getElementById('btn-inline-placeholder');
-            const bottomPlaceholder = document.getElementById('btn-bottom-placeholder');
+            <h3 style="margin-top: 30px;">Compétences Techniques</h3>
+            <div class="skills-container">
+                <span class="skill-badge">Administration Système (Linux / Windows Server)</span>
+                <span class="skill-badge">Architecture Réseau (VLANs, Routage, CARP)</span>
+                <span class="skill-badge">Supervision & Surveillance (PRTG, Traps SNMP)</span>
+                <span class="skill-badge">Virtualisation & Stockage (Hyper-V, NAS Synology)</span>
+                <span class="skill-badge">Sécurité Périmétrique (pfSense, Stormshield, Fortinet)</span>
+                <span class="skill-badge">Scripting & Automatisation (Bash, PowerShell)</span>
+                <span class="skill-badge">Gestion des sauvegardes & Restauration (Veeam)</span>
+                <span class="skill-badge">Cybersécurité & Hardening (Durcissement Kernel)</span>
+                <span class="skill-badge">Analyse de flux et filtrage (Wireshark)</span>
+                <span class="skill-badge">Gestion et interception des périphériques (udev rules)</span>
+            </div>
+        </section>
+
+        <section id="projets">
+            <h2>Mes Réalisations</h2>
+            <p>Aperçu de mes projets académiques et pratiques majeurs menés en BUT3 et projets personnels.</p>
             
-            textBlock.classList.toggle('expanded');
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div>
+                        <h3>Informatisation d'un Hôpital de Campagne</h3>
+                        <div class="project-tags">
+                            <span class="tag">pfSense</span>
+                            <span class="tag">CARP</span>
+                            <span class="tag">VLANs</span>
+                            <span class="tag">Bash / Cron</span>
+                        </div>
+                        <p>Conception complète de l'architecture réseau hautement disponible et redondante d'un hôpital temporaire (Mode Agile, équipe de 5).</p>
+                        <ul>
+                            <li>Déploiement d'un cluster HA de 2 Firewalls pfSense (Maître/Backup) avec IP virtuelles CARP.</li>
+                            <li>Segmentation en VLANs (Médical, Admin, VoIP...) avec règles de filtrage rigoureuses.</li>
+                            <li>Automatisation des sauvegardes via script Bash couplé à une tâche Crontab par SSH.</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/florian-lattard-71862929b" target="_blank" class="btn-link">Voir la démo pfSense →</a>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <h3>Sécurisation de stockage USB (udev & Bash)</h3>
+                        <div class="project-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">Bash</span>
+                            <span class="tag">udev rules</span>
+                            <span class="tag">SNMP Trap</span>
+                        </div>
+                        <p>Script de durcissement (hardening) de poste Linux interceptant instantanément l'insertion de tout stockage USB non autorisé.</p>
+                        <ul>
+                            <li>Vérification automatisée de l'identifiant via une Whitelist locale.</li>
+                            <li>Blocage matériel immédiat au niveau du Kernel Linux via la variable <em>authorized</em>.</li>
+                            <li>Génération de logs locaux et émission instantanée d'un trap SNMP d'alerte vers le SOC.</li>
+                        </ul>
+                    </div>
+                    <a href="https://github.com/florian-lattard-71862929b" target="_blank" class="btn-link">Code source GitHub →</a>
+                </div>
+
+                <div class="project-card placeholder">
+                    <p style="color: #4f5b66; font-style: italic;">+ Tri et mise au propre de nouveaux projets réseaux/cyber en cours...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="parcours">
+            <h2>Parcours Scolaire</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">2026 – 2027</span>
+                    <div class="timeline-title">BUT3 Réseaux & Télécommunications, Parcours Cybersécurité</div>
+                    <div class="timeline-institution">IUT Nord Franche-Comté (Montbéliard)</div>
+                    <p style="font-size: 14px;">Niveau BAC+3 — Formation en cours axée sur la sécurisation des architectures complexes, la cryptographie, l'analyse de traces logicielles et la conformité SSI.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Sept. 2023 – Juin 2025</span>
+                    <div class="timeline-title">BTS CIEL IR (Cybersécurité, Informatique et réseaux, Électronique)</div>
+                    <div class="timeline-institution">Ensemble Scolaire Saint-Louis — Crest</div>
+                    <p style="font-size: 14px;">Option A - Informatique et réseaux. Niveau BAC+2 — Obtenu avec <strong>332 / 420 points</strong>. Acquisition de solides compétences en Logical Volume Manager (LVM), virtualisation d'environnements et bases de la sécurité informatique.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Sept. 2020 – Juil. 2023</span>
+                    <div class="timeline-title">Baccalauréat Professionnel Systèmes Numériques</div>
+                    <div class="timeline-institution">Ensemble Scolaire Saint-Louis — Crest</div>
+                    <p style="font-size: 14px;">Option C - Réseaux informatiques et systèmes communicants (SN RISC). Niveau BAC — Obtenu avec la <strong>Mention Très Bien</strong> (<strong>514,75 / 580 points</strong>).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiences">
+            <h2>Expériences Professionnelles</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">Sept. 2026 - Aujourd'hui (En cours)</span>
+                    <div class="timeline-title">En recherche de stage de fin d'études (16 semaines)</div>
+                    <div class="timeline-institution">IUT Nord Franche-Comté · Stage BUT3</div>
+                    <p style="font-size: 14px;">Pour valider mon diplôme, je recherche une immersion technique de 16 semaines sur l'année scolaire 2026-2027. Principalement disponible géographiquement sur les secteurs de <strong>Valence</strong> ou de <strong>Montbéliard</strong>, mais pleinement ouvert à d'autres opportunités géographiques.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Juin 2024 - Juillet 2024 (2 mois)</span>
+                    <div class="timeline-title">PFMP - Technicien IT (Niveau Avancé)</div>
+                    <div class="timeline-institution">MegaO Informatique — Valence</div>
+                    <p style="font-size: 14px; margin-bottom: 10px;">Missions axées sur l'infrastructure critique et l'automatisation logicielle :</p>
+                    <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
+                        <li><strong>Serveurs & Virtualisation :</strong> Administration Hyper-V, configurations RAID 1/5, création/migration de VMs. Maintenance AD, DHCP, DNS, RDS et serveurs Exchange.</li>
+                        <li><strong>Réseaux & Sécurité :</strong> Switches, VLANs, VoIP. Gestion VPN (Stormshield, Fortinet, OpenVPN) et déploiements cyber (Kaspersky, Tehtris EDR, ESET, SentinelOne).</li>
+                        <li><strong>Automatisation & Restauration :</strong> Scripting (Robocopy, PowerShell pour export DHCP), sauvegardes Veeam Backup, déploiement automatisé via MDT / PXE Boot.</li>
+                        <li><strong>Gestion :</strong> Prise de responsabilités (encadrement de stagiaires), interventions sur site client et assistance SAV à distance (TeamViewer/AnyDesk).</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Déc. 2022 - Janv. 2023 (2 mois)</span>
+                    <div class="timeline-title">PFMP - Technicien IT (Systèmes & Supervision)</div>
+                    <div class="timeline-institution">MegaO Informatique — Valence</div>
+                    <p style="font-size: 14px; margin-bottom: 10px;">Immersion orientée intégration et monitoring réseau :</p>
+                    <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
+                        <li><strong>Infrastructure & Stockage :</strong> Déploiement matériel de serveurs (Lenovo ST250 V2), migration Active Directory (AD DS, DNS, DHCP) et configuration fine de NAS Synology (Active Backup, RAID).</li>
+                        <li><strong>Supervision :</strong> Mise en place de sondes et gestion d'alertes via PRTG Network Monitor.</li>
+                        <li><strong>Soutien Technique :</strong> Utilisation d'outils avancés de récupération (Hiren's BootCD, Lazesoft), gestion de flottes via Ubiquiti UniFi Controller et administration Microsoft 365.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Mai 2022 - Juin 2022 (2 mois)</span>
+                    <div class="timeline-title">PFMP - Technicien IT (Initial)</div>
+                    <div class="timeline-institution">MegaO Informatique — Valence</div>
+                    <p style="font-size: 14px;">Première approche professionnelle en entreprise : maintenance d'infrastructures informatiques et réseaux d'entreprises, préparation minutieuse de matériels clients et assistance technique SAV.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Mai 2021 - Juin 2021 (2 mois)</span>
+                    <div class="timeline-title">PFMP - Dépannage IT & Maintenance</div>
+                    <div class="timeline-institution">TEDI 07 — Charmes-sur-Rhône</div>
+                    <p style="font-size: 14px;">Découverte terrain : diagnostic matériel, assemblage hardware de postes clients, résolution de pannes complexes, gestion de sauvegardes locales et apprentissage du respect des normes électriques en atelier.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Me contacter & Liens</h2>
+            <p>Mon profil correspond à vos objectifs ? Je suis activement à la recherche de mon stage de fin d'études de 16 semaines et totalement mobile.</p>
             
-            if (textBlock.classList.contains('expanded')) {
-                // OUVERTURE : Action immédiate
-                textInline.classList.add('expanded');
-                btn.innerHTML = 'Voir moins ↑';
-                dots.style.display = 'none';
-                bottomPlaceholder.appendChild(btn); 
-            } else {
-                // FERMETURE : Le bouton change de texte immédiatement...
-                btn.innerHTML = 'Voir plus ↓';
+            <div class="contact-box">
+                <p style="margin-bottom: 12px;">📧 Email : <a href="mailto:lattardf.pro@gmail.com" class="contact-link">lattardf.pro@gmail.com</a></p>
+                <p style="margin-bottom: 12px;">📞 Téléphone : <a href="tel:+33641023990" class="contact-link">+33 6 41 02 39 90</a></p>
+                <p style="margin-bottom: 12px;">💼 LinkedIn : <a href="https://www.linkedin.com/in/florian-lattard-71862929b/" target="_blank" class="contact-link">florian-lattard-71862929b</a></p>
+                <p style="margin-bottom: 20px;">💻 GitHub : <a href="https://github.com/" target="_blank" class="contact-link">Mon profil GitHub</a></p>
                 
-                // ... mais il attend 400ms (la fin de l'animation) pour remonter et afficher les "..."
-                setTimeout(() => {
-                    textInline.classList.remove('expanded');
-                    dots.style.display = 'inline';
-                    inlinePlaceholder.appendChild(btn); 
-                }, 400); // 400 millisecondes = 0.4s (calqué sur le CSS)
-            }
-        }
-    </script>
-</body>
+                <a href="./assets/CV_Florian-LATTARD.pdf" target="_blank" class="btn-cv">📄 Visualiser mon CV</a>
+            </div>
+        </section>
+    </main>
 
+</body>
 </html>
