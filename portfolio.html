@@ -18,7 +18,7 @@
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#apropos">À propos & Compétences</a></li>
-                    <li><a href="#projets">Mes Réalisations</a></li>
+                    <li><a href="#projets">Projets</a></li>
                     <li><a href="#parcours">Parcours Scolaire</a></li>
                     <li><a href="#experiences">Expériences Pro</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -64,8 +64,7 @@ Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en 
         </section>
 
         <section id="projets">
-            <h2>Mes Réalisations</h2>
-            <p>Aperçu de mes projets académiques et pratiques majeurs menés en BUT3 et projets personnels.</p>
+            <h2>Projets</h2>
             
             <div class="projects-grid">
                 <div class="project-card">
@@ -76,38 +75,37 @@ Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en 
                             <span class="tag">CARP</span>
                             <span class="tag">VLANs</span>
                             <span class="tag">Bash / Cron</span>
+                            <span class="tag">Agile / Trello</span>
                         </div>
-                        <p>Conception complète de l'architecture réseau hautement disponible et redondante d'un hôpital temporaire (Mode Agile, équipe de 5).</p>
-                        <ul>
-                            <li>Déploiement d'un cluster HA de 2 Firewalls pfSense (Maître/Backup) avec IP virtuelles CARP.</li>
-                            <li>Segmentation en VLANs (Médical, Admin, VoIP...) avec règles de filtrage rigoureuses.</li>
-                            <li>Automatisation des sauvegardes via script Bash couplé à une tâche Crontab par SSH.</li>
-                        </ul>
+                        <p>Dans le cadre de mon BUT3 Réseaux & Télécoms, j'ai piloté un projet en équipe de 5 en imaginant l'infrastructure réseau et système d'un hôpital acceuillant 30 lits. Le cahier des charges a évolué en cours de projet, nous avons travaillé en méthode Agile. On avançait par étape, on testait et validait, avant de passer à la suivante.</p>
+                        <p>Pour préparer ce projet, j'ai co-rédigé le cahier des charges, dessiné le diagramme d'architecture global et établi le plan d'adressage IP et des VLANs. Dans ma partie, j'ai déployé un cluster HA de 2 firewalls pfSense en mode Maître/Backup avec synchronisation d'états et de configuration. J'ai segmenté le réseau en 9 VLANs isolés avec des règles de filtrage, et configuré les IP virtuelles CARP qui servent de passerelles communes. J'ai aussi écrit deux scripts Bash pour automatiser les sauvegardes : un script backup quotidien via Cron + SSH vers un serveur web distant qui a une BDD, et un second script pour la restauration.</p>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Évolutions envisagées : NAT, VPN site-à-site, DHCP Relay, DNS Forwarder sur pfSense.</em></p>
                     </div>
-                    <a href="https://github.com/florian-lattard-71862929b" target="_blank" class="btn-link">Voir la démo pfSense →</a>
+                    <div class="project-links">
+                        <a href="https://youtu.be/hFCqYfaBhT0" target="_blank" class="btn-sm">🎬 Démo pfSense</a>
+                        <a href="https://github.com/florian-lattard-71862929b" target="_blank" class="btn-sm">📁 Configs & scripts</a>
+                    </div>
                 </div>
 
                 <div class="project-card">
                     <div>
-                        <h3>Sécurisation de stockage USB (udev & Bash)</h3>
+                        <h3>Sécurisation des périphériques USB</h3>
                         <div class="project-tags">
                             <span class="tag">Linux</span>
                             <span class="tag">Bash</span>
                             <span class="tag">udev rules</span>
                             <span class="tag">SNMP Trap</span>
                         </div>
-                        <p>Script de durcissement (hardening) de poste Linux interceptant instantanément l'insertion de tout stockage USB non autorisé.</p>
-                        <ul>
-                            <li>Vérification automatisée de l'identifiant via une Whitelist locale.</li>
-                            <li>Blocage matériel immédiat au niveau du Kernel Linux via la variable <em>authorized</em>.</li>
-                            <li>Génération de logs locaux et émission instantanée d'un trap SNMP d'alerte vers le SOC.</li>
-                        </ul>
+                        <p>Développé dans le cadre d'un devoir pour m'entraîner sur l'environnement Linux, le scripting Bash et découvrir les règles udev. Ce projet protège un poste Linux en bloquant instantanément l'accès à tout périphérique de stockage USB non autorisé dès son branchement.</p>
+                        <p>J'ai créé une règle udev associée à un script Bash qui intercepte l'insertion de n'importe quel périphérique de stockage USB. Le système autorise l'accès si le périphérique est présent dans une whitelist. Sinon, il déclenche un blocage matériel immédiat au niveau du Kernel (via le fichier authorized) et envoie une alerte SNMP (trap) au SOC. Tout est également journalisé localement dans un fichier .log.</p>
                     </div>
-                    <a href="https://github.com/florian-lattard-71862929b" target="_blank" class="btn-link">Code source GitHub →</a>
+                    <div class="project-links">
+                        <a href="https://github.com/flattard/usb_protect" target="_blank" class="btn-sm">📁 Code source (GitHub)</a>
+                    </div>
                 </div>
 
                 <div class="project-card placeholder">
-                    <p style="color: #4f5b66; font-style: italic;">+ Tri et mise au propre de nouveaux projets réseaux/cyber en cours...</p>
+                    <p style="color: #4f5b66; font-style: italic;">Tri et mise au propre de nouveaux projets en cours...</p>
                 </div>
             </div>
         </section>
@@ -118,20 +116,20 @@ Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en 
                 <div class="timeline-item">
                     <span class="timeline-date">2026 – 2027</span>
                     <div class="timeline-title">BUT3 Réseaux & Télécommunications, Parcours Cybersécurité</div>
-                    <div class="timeline-institution">IUT Nord Franche-Comté (Montbéliard)</div>
-                    <p style="font-size: 14px;">Niveau BAC+3 — Formation en cours axée sur la sécurisation des architectures complexes, la cryptographie, l'analyse de traces logicielles et la conformité SSI.</p>
+                    <div class="timeline-institution">IUT Nord Franche-Comté - Montbéliard</div>
+                    <p style="font-size: 14px;">Niveau BAC+3 - Formation en cours axée sur la sécurisation des architectures complexes, la cryptographie, l'analyse de traces logicielles et la conformité SSI.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">Sept. 2023 – Juin 2025</span>
                     <div class="timeline-title">BTS CIEL IR (Cybersécurité, Informatique et réseaux, Électronique)</div>
-                    <div class="timeline-institution">Ensemble Scolaire Saint-Louis — Crest</div>
-                    <p style="font-size: 14px;">Option A - Informatique et réseaux. Niveau BAC+2 — Obtenu avec <strong>332 / 420 points</strong>. Acquisition de solides compétences en Logical Volume Manager (LVM), virtualisation d'environnements et bases de la sécurité informatique.</p>
+                    <div class="timeline-institution">Ensemble Scolaire Saint-Louis - Crest</div>
+                    <p style="font-size: 14px;">Option A - Informatique et réseaux. Niveau BAC+2 - Obtenu avec <strong>332 / 420 points</strong>. Acquisition de solides compétences en Logical Volume Manager (LVM), virtualisation d'environnements et bases de la sécurité informatique.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">Sept. 2020 – Juil. 2023</span>
                     <div class="timeline-title">Baccalauréat Professionnel Systèmes Numériques</div>
-                    <div class="timeline-institution">Ensemble Scolaire Saint-Louis — Crest</div>
-                    <p style="font-size: 14px;">Option C - Réseaux informatiques et systèmes communicants (SN RISC). Niveau BAC — Obtenu avec la <strong>Mention Très Bien</strong> (<strong>514,75 / 580 points</strong>).</p>
+                    <div class="timeline-institution">Ensemble Scolaire Saint-Louis - Crest</div>
+                    <p style="font-size: 14px;">Option C - Réseaux informatiques et systèmes communicants (SN RISC). Niveau BAC - Obtenu avec la <strong>Mention Très Bien</strong> (<strong>514,75 / 580 points</strong>).</p>
                 </div>
             </div>
         </section>
@@ -148,7 +146,7 @@ Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en 
                 <div class="timeline-item">
                     <span class="timeline-date">Juin 2024 - Juillet 2024 (2 mois)</span>
                     <div class="timeline-title">PFMP - Technicien IT</div>
-                    <div class="timeline-institution">MegaO Informatique — Valence</div>
+                    <div class="timeline-institution">MegaO Informatique - Valence</div>
                     <p style="font-size: 14px; margin-bottom: 10px;">Missions axées sur l'infrastructure critique et l'automatisation logicielle :</p>
                     <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
                         <li><strong>Serveurs & Virtualisation :</strong> Administration Hyper-V, configurations RAID 1/5, création/migration de VMs. Maintenance AD, DHCP, DNS, RDS et serveurs Exchange.</li>
@@ -160,7 +158,7 @@ Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en 
                 <div class="timeline-item">
                     <span class="timeline-date">Déc. 2022 - Janv. 2023 (2 mois)</span>
                     <div class="timeline-title">PFMP - Technicien IT</div>
-                    <div class="timeline-institution">MegaO Informatique — Valence</div>
+                    <div class="timeline-institution">MegaO Informatique - Valence</div>
                     <p style="font-size: 14px; margin-bottom: 10px;">Immersion orientée intégration et monitoring réseau :</p>
                     <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
                         <li><strong>Infrastructure & Stockage :</strong> Déploiement matériel de serveurs (Lenovo ST250 V2), migration Active Directory (AD DS, DNS, DHCP) et configuration fine de NAS Synology (Active Backup, RAID).</li>
@@ -171,29 +169,53 @@ Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en 
                 <div class="timeline-item">
                     <span class="timeline-date">Mai 2022 - Juin 2022 (2 mois)</span>
                     <div class="timeline-title">PFMP - Technicien IT</div>
-                    <div class="timeline-institution">MegaO Informatique — Valence</div>
+                    <div class="timeline-institution">MegaO Informatique - Valence</div>
                     <p style="font-size: 14px;">Première approche professionnelle en entreprise : maintenance d'infrastructures informatiques et réseaux d'entreprises, préparation minutieuse de matériels clients et assistance technique SAV.</p>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">Mai 2021 - Juin 2021 (2 mois)</span>
-                    <div class="timeline-title">PFMP - Dépannage IT & Maintenance</div>
-                    <div class="timeline-institution">TEDI 07 — Charmes-sur-Rhône</div>
+                    <div class="timeline-title">PFMP - Dépannage IT</div>
+                    <div class="timeline-institution">TEDI 07 - Charmes-sur-Rhône</div>
                     <p style="font-size: 14px;">Découverte terrain : diagnostic matériel, assemblage hardware de postes clients, résolution de pannes complexes, gestion de sauvegardes locales et apprentissage du respect des normes électriques en atelier.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Me contacter & Liens</h2>
-            <p>Mon profil correspond à vos objectifs ? Je suis activement à la recherche de mon stage de fin d'études de 16 semaines et totalement mobile.</p>
+            <h2>Me contacter</h2>
+            <p class="contact-lead">Je recherche activement mon stage de fin d'études (16 semaines) — mobile sur Valence, Montbéliard et au-delà. Vous avez un projet, une opportunité ou juste envie d'échanger ?</p>
             
             <div class="contact-box">
-                <p style="margin-bottom: 12px;">📧 Email : <a href="mailto:lattardf.pro@gmail.com" class="contact-link">lattardf.pro@gmail.com</a></p>
-                <p style="margin-bottom: 12px;">📞 Téléphone : <a href="tel:+33641023990" class="contact-link">+33 6 41 02 39 90</a></p>
-                <p style="margin-bottom: 12px;">💼 LinkedIn : <a href="https://www.linkedin.com/in/florian-lattard-71862929b/" target="_blank" class="contact-link">florian-lattard-71862929b</a></p>
-                <p style="margin-bottom: 20px;">💻 GitHub : <a href="https://github.com/" target="_blank" class="contact-link">Mon profil GitHub</a></p>
+                <div class="contact-methods">
+                    <a href="mailto:lattardf.pro@gmail.com" class="contact-btn" title="Envoyer un email">
+                        <span class="contact-btn-icon">✉️</span>
+                        <span class="contact-btn-label">Email</span>
+                        <span class="contact-btn-value">lattardf.pro@gmail.com</span>
+                    </a>
+                    <a href="tel:+33641023990" class="contact-btn" title="Appeler">
+                        <span class="contact-btn-icon">📞</span>
+                        <span class="contact-btn-label">Téléphone</span>
+                        <span class="contact-btn-value">+33 6 41 02 39 90</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/florian-lattard-71862929b/" target="_blank" class="contact-btn" title="Profil LinkedIn">
+                        <span class="contact-btn-icon">💼</span>
+                        <span class="contact-btn-label">LinkedIn</span>
+                        <span class="contact-btn-value">florian-lattard</span>
+                    </a>
+                    <a href="https://github.com/florian-lattard-71862929b" target="_blank" class="contact-btn" title="Profil GitHub">
+                        <span class="contact-btn-icon">💻</span>
+                        <span class="contact-btn-label">GitHub</span>
+                        <span class="contact-btn-value">florian-lattard</span>
+                    </a>
+                </div>
                 
-                <a href="./assets/CV_Florian-LATTARD.pdf" target="_blank" class="btn-cv">📄 Visualiser mon CV</a>
+                <div class="contact-divider"></div>
+                
+                <a href="./assets/CV_Florian-LATTARD.pdf" target="_blank" class="btn btn-primary">
+                    <span>📄</span> Télécharger mon CV
+                </a>
+                
+                <p class="contact-note">Réponse garantie sous 24h — n'hésitez pas à me challenger sur mes projets !</p>
             </div>
         </section>
     </main>

@@ -225,14 +225,24 @@ p {
     margin: 20px 0 40px 0;
 }
 
-.skill-badge {
+.skill-badge,
+.project-tags .tag {
     background-color: var(--card-bg);
     color: var(--text-main);
-    padding: 8px 14px;
+    padding: 6px 12px;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     border: 1px solid var(--border-color);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 16px 0;
 }
 
 /* Frise Chronologique (Parcours & Expériences) */
@@ -361,29 +371,149 @@ p {
 .contact-box {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 30px;
-    max-width: 600px;
-    margin-top: 20px;
+    border-radius: 12px;
+    padding: 36px;
+    max-width: 580px;
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-list {
-    list-style: none;
+.contact-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-blue), #79c0ff);
+    opacity: 0.8;
 }
 
-.contact-list li {
-    margin-bottom: 12px;
-    font-size: 0.95rem;
+.contact-lead {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 700px;
+    margin-bottom: 8px;
 }
 
-.contact-link {
-    color: var(--accent-blue);
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.contact-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 18px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
     text-decoration: none;
-    font-weight: 600;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
 }
 
-.contact-link:hover {
-    text-decoration: underline;
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--accent-blue);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+}
+
+.contact-btn:hover {
+    border-color: var(--accent-blue);
+    background: var(--button-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(88, 166, 255, 0.12);
+    text-decoration: none;
+}
+
+.contact-btn:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.contact-btn-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--button-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-btn-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+    display: block;
+}
+
+.contact-btn-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin: 24px 0;
+}
+
+.btn-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    background-color: rgba(88, 166, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(88, 166, 255, 0.18);
+}
+
+.contact-note {
+    margin-top: 20px !important;
+    font-size: 13px !important;
+    color: var(--text-muted) !important;
+    text-align: center;
+    font-style: italic;
+    max-width: none !important;
+}
+
+/* Responsive contact */
+@media (max-width: 600px) {
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+    .contact-btn {
+        padding: 14px 16px;
+    }
 }
 
 .btn {
@@ -410,6 +540,35 @@ html.light-theme .btn {
 .btn:hover {
     background-color: rgba(88, 166, 255, 0.2);
     transform: translateY(-1px);
+}
+
+/* Boutons compacts pour les liens de projet */
+.project-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.btn-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--button-bg);
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-sm:hover {
+    border-color: var(--accent-blue);
+    background: rgba(88, 166, 255, 0.15);
+    text-decoration: none;
 }
 
 /* ==========================================================================
