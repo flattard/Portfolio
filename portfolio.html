@@ -8,30 +8,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="menu-toggle" class="hamburger-btn" aria-label="Ouvrir le menu">
+        <div class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </div>
+    </button>
     <aside>
         <div class="profile">
             <h1>Florian LATTARD</h1>
-            <div class="subtitle">Étudiant en Informatique<br>Spécialisation Système, Réseau & Cybersécurité</div>
-            <nav>
-                <button id="menu-toggle" class="hamburger-btn" aria-label="Ouvrir le menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul>
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#apropos">À propos</a></li>
-                    <li><a href="#projets">Projets</a></li>
-                    <li><a href="#parcours">Parcours Scolaire</a></li>
-                    <li><a href="#experiences">Expériences Pro</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="subtitle">
+                Étudiant en Informatique<br>Spécialisation Système, Réseau & Cybersécurité
+            </div>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#parcours">Parcours Scolaire</a></li>
+                <li><a href="#experiences">Expériences Pro</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
         <footer>
-            <small style="color: #8b949e;"> 2026 - Florian Lattard</small>
+            <small style="color: #8b949e;">&copy; 2026 - Florian Lattard</small>
         </footer>
     </aside>
+
 
     <main>
         <section id="accueil" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 40px 20px; box-sizing: border-box;">
@@ -121,7 +125,7 @@
                             <span class="tag">Bash / Cron</span>
                             <span class="tag">Agile / Trello</span>
                         </div>
-                        <p>Dans le cadre de mon BUT3 Réseaux & Télécoms, j'ai piloté un projet en équipe de 5 en imaginant l'infrastructure réseau et système d'un hôpital acceuillant 30 lits. Le cahier des charges a évolué en cours de projet, nous avons travaillé en méthode Agile. On avançait par étape, on testait et validait, avant de passer à la suivante.</p>
+                        <p>Dans le cadre de mon BUT3 Réseaux & Télécoms, j'ai piloté un projet en équipe de 5 en imaginant l'infrastructure réseau et système d'un hôpital accueillant 30 lits. Le cahier des charges a évolué en cours de projet, nous avons travaillé en méthode Agile. On avançait par étape, on testait et validait, avant de passer à la suivante.</p>
                         <p>Pour préparer ce projet, j'ai co-rédigé le cahier des charges, dessiné le diagramme d'architecture global et établi le plan d'adressage IP et des VLANs. Dans ma partie, j'ai déployé un cluster HA de 2 firewalls pfSense en mode Maître/Backup avec synchronisation d'états et de configuration. J'ai segmenté le réseau en 9 VLANs isolés avec des règles de filtrage, et configuré les IP virtuelles CARP qui servent de passerelles communes. J'ai aussi écrit deux scripts Bash pour automatiser les sauvegardes : un script backup quotidien via Cron + SSH vers un serveur web distant qui a une BDD, et un second script pour la restauration.</p>
                         <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Évolutions envisagées : NAT, VPN site-à-site, DHCP Relay, DNS Forwarder sur pfSense.</em></p>
                     </div>
@@ -306,20 +310,20 @@ document.querySelectorAll('.js-copy-btn').forEach(button => {
 });
 </script>
 <script>
-const menuToggle = document.getElementById('menu-toggle');
-const sidebar = document.querySelector('.votre-bandeau'); // Remplacez par votre sélecteur
+document.addEventListener("DOMContentLoaded", () => {
+    // On cible le bouton hamburger et la barre de navigation (aside)
+    const hamburgerBtn = document.querySelector(".hamburger-btn");
+    const sidebar = document.querySelector("aside");
 
-menuToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('menu-open');
+    // On vérifie que les deux éléments existent sur la page
+    if (hamburgerBtn && sidebar) {
+        hamburgerBtn.addEventListener("click", () => {
+            // Ajoute ou supprime la classe menu-open au clic
+            sidebar.classList.toggle("menu-open");
+        });
+    }
 });
 
-// Optionnel : Ferme le menu automatiquement si on clique sur un lien du menu
-const menuLinks = document.querySelectorAll('.votre-bandeau a');
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        sidebar.classList.remove('menu-open');
-    });
-});
 </script>
 
 </body>
