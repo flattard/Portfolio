@@ -632,188 +632,214 @@ html.light-theme .btn {
    6. RESPONSIVE DESIGN (Adaptation mobiles et tablettes)
    ========================================================================== */
 
-/* ==========================================================================
-   6. RESPONSIVE DESIGN (Adaptation mobiles et tablettes)
-   ========================================================================== */
-
 @media (max-width: 768px) {
     
     /* --- STRUCTURE GLOBALE --- */
     body {
-        flex-direction: column !important;
+        flex-direction: column;
     }
 
     main {
-        margin-left: 0 !important;
-        width: 100% !important;
-        padding: 0 20px !important;
+        margin-left: 0;
+        width: 100%;
+        padding: 0 20px;
     }
 
     section {
-        min-height: auto !important;
-        padding: 60px 0 !important;
+        min-height: auto;
+        padding: 60px 0;
     }
 
     /* Sécurité pour l'écran d'accueil (évite la superposition du bouton) */
     #accueil {
-        padding-top: 80px !important; 
+        padding-top: 80px; 
     }
 
     /* --- BOUTON HAMBURGER (FIXE EN HAUT À GAUCHE) --- */
     .hamburger-btn {
-        display: flex !important;
-        position: fixed !important;
-        top: 15px !important;
-        left: 15px !important;
-        z-index: 10000 !important; /* Reste au-dessus de tout, même du menu ouvert */
-        width: 40px !important;
-        height: 40px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        justify-content: center !important;
-        align-items: center !important;
-        background: var(--card-bg) !important;
-        border: 1px solid var(--border-color) !important;
-        border-radius: 6px !important;
-        cursor: pointer !important;
-        outline: none !important;
+        display: flex;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 10000; /* Reste au-dessus de tout, même du menu ouvert */
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        cursor: pointer;
+        outline: none;
     }
 
     /* Boîtier interne des barres */
     .hamburger-box {
-        position: relative !important;
-        width: 24px !important;
-        height: 18px !important;
-        display: block !important;
+        position: relative;
+        width: 24px;
+        height: 18px;
+        display: block;
     }
 
     /* Tracé des 3 barres horizontales */
     .hamburger-inner,
     .hamburger-inner::before,
     .hamburger-inner::after {
-        position: absolute !important;
-        width: 24px !important;
-        height: 3px !important;
-        background-color: var(--accent-blue) !important;
-        border-radius: 4px !important;
-        display: block !important;
+        position: absolute;
+        width: 24px;
+        height: 3px;
+        background-color: var(--accent-blue);
+        border-radius: 4px;
+        display: block;
     }
 
-    .hamburger-inner { top: 50% !important; transform: translateY(-50%) !important; }
-    .hamburger-inner::before { content: "" !important; top: -7px !important; }
-    .hamburger-inner::after { content: "" !important; bottom: -7px !important; }
+    .hamburger-inner { top: 50%; transform: translateY(-50%); }
+    .hamburger-inner::before { content: ""; top: -7px; }
+    .hamburger-inner::after { content: ""; bottom: -7px; }
 
 
     /* --- BARRE LATÉRALE DE NAVIGATION (MASQUÉE PAR DÉFAUT) --- */
     aside {
-        position: fixed !important;
-        top: 0 !important;
-        bottom: 0 !important;
-        left: -320px !important; /* Totalement caché à gauche (largeur exacte de la sidebar) */
-        width: 320px !important;
-        height: 100vh !important;
-        z-index: 9999 !important; /* S'affiche au-dessus du contenu 'main' */
-        background-color: #0d1117 !important;
-        color: #f0f6fc !important;
-        transition: left 0.3s ease-in-out !important;
-        border-right: 1px solid var(--border-color) !important;
-        border-bottom: none !important;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -320px; /* Totalement caché à gauche de l'écran */
+        width: 320px;
+        height: 100vh;
+        z-index: 9999; /* S'affiche au-dessus du contenu principal 'main' */
+        background-color: #0d1117;
+        color: #f0f6fc;
+        transition: left 0.3s ease-in-out;
+        border-right: 1px solid var(--border-color);
+        border-bottom: none;
         
-        /* Alignement vertical interne */
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
+        /* Structure Flexbox pour isoler le Haut, le Milieu et le Bas */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        align-items: flex-start;
         
-        /* Espaces de sécurité internes (évite que le bouton masque le nom) */
-        padding: 80px 30px 40px 30px !important; 
-        box-sizing: border-box !important;
+        /* Espaces internes de sécurité */
+        padding: 70px 30px 30px 30px; 
+        box-sizing: border-box;
     }
 
     html.light-theme aside {
-        background-color: #f6f8fa !important;
-        color: #24292f !important;
+        background-color: #f6f8fa;
+        color: #24292f;
     }
 
     /* --- CLASSE D'OUVERTURE ACTIVÉE VIA LE JAVASCRIPT --- */
     aside.menu-open {
-        left: 0 !important; /* Le menu glisse sur l'écran */
+        left: 0; /* Le menu glisse parfaitement sur l'écran */
     }
 
+    /* --- CONTENEUR DU PROFIL (HAUT DU MENU) --- */
+    aside .profile {
+        width: 100%;
+        flex-shrink: 0; /* Empêche l'écrasement sur petit écran */
+    }
 
-    /* --- CONTENU INTERNE DU BANDEAU & PROFIL --- */
     .profile .subtitle {
-        margin-bottom: 25px !important;
+        margin-bottom: 0px; /* Réduit pour laisser Flexbox gérer l'espace */
     }
     
     /* Votre Prénom / Nom */
     aside h1, aside h2 {
-        margin: 10px 0 5px 0 !important;
-        font-size: 1.4rem !important;
-        padding-left: 0 !important;
+        margin: 10px 0 5px 0;
+        font-size: 1.4rem;
+        padding-left: 0;
     }
 
     /* Votre statut (Étudiant...) */
     aside p {
-        margin: 0 0 30px 0 !important;
-        font-size: 0.95rem !important;
-        color: var(--text-muted) !important;
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text-muted);
     }
 
-    /* --- VISIBILITÉ VERTICALE DES LIENS DE NAVIGATION --- */
+    /* --- ZONE DE NAVIGATION CENTRÉE EN HAUTEUR (MILIEU) --- */
     aside nav {
-        width: 100% !important;
+        width: 100%;
+        flex-grow: 1; /* Remplit tout l'espace vide central */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centre verticalement la liste des liens */
+        margin: 20px 0;
     }
 
     aside nav ul {
-        display: flex !important; 
-        flex-direction: column !important; 
-        width: 100% !important;
-        list-style: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        display: flex; 
+        flex-direction: column; 
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
     aside nav li {
-        display: block !important; 
-        width: 100% !important;
-        margin: 0 0 15px 0 !important;
-        padding: 0 !important;
+        display: block; 
+        width: 100%;
+        margin: 0 0 15px 0;
+        padding: 0;
+    }
+
+    aside nav li:last-child {
+        margin-bottom: 0;
     }
 
     aside nav a {
-        display: flex !important; 
-        visibility: visible !important; 
-        opacity: 1 !important; 
-        padding: 10px 0 !important; 
-        font-size: 1.1rem !important;
-        width: 100% !important;
-        text-decoration: none !important;
-        color: var(--text-muted) !important; 
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 15px;
+        font-weight: 600;
+        transition: color 0.2s, padding-left 0.2s;
+        display: flex;
+        align-items: center;
     }
 
     aside nav a:hover {
-        color: var(--header-text) !important;
+        color: var(--header-text);
+    }
+
+    /* --- BLOC TECHNIQUE DU BAS (COPYRIGHT & BOUTON THÈME) --- */
+    /* Force tout le contenu en bas de la structure HTML d'aside à descendre */
+    aside .theme-toggle {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    /* Cible le texte ou le conteneur du copyright tout en bas */
+    aside > text, 
+    aside > p:last-of-type, 
+    aside footer, 
+    aside .copyright-text {
+        margin-top: auto; /* Pousse l'élément vers le bas */
+        font-size: 12px;
+        color: var(--text-muted);
+        width: 100%;
     }
 
     /* --- COMPOSANTS DE CONTENU PARTICULIERS --- */
     .project-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 5px !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
     }
 
     .splash-hello {
-        font-size: 2.2rem !important;
+        font-size: 2.2rem;
     }
 
     .splash-welcome {
-        font-size: 1rem !important;
+        font-size: 1rem;
     }
 
     .icon-label-container {
-        display: inline-flex !important;
-        align-items: center !important;
-        gap: 8px !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
     }
 }
