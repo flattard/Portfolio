@@ -407,8 +407,8 @@ p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
-    padding: 16px 18px;
+    gap: 6px;
+    padding: 14px 16px;
     background: var(--bg-color);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -468,12 +468,12 @@ p {
 }
 
 .contact-btn-value {
-    font-size: 14px;
+    margin-top: 4px;
+    font-size: 13px;
     font-weight: 500;
     color: var(--text-main);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .contact-divider {
@@ -652,4 +652,10 @@ font-size: 2.2rem;
 .splash-welcome {
 font-size: 1rem;
 }
+}
+
+.icon-label-container {
+  display: inline-flex;  /* Active flexbox tout en gardant le bloc en ligne */
+  align-items: center;   /* Aligne l'icône et le texte verticalement au centre */
+  gap: 8px;              /* Crée un espace de 8 pixels entre l'icône et le texte */
 }
