@@ -13,6 +13,11 @@
             <h1>Florian LATTARD</h1>
             <div class="subtitle">Étudiant en Informatique<br>Spécialisation Système, Réseau & Cybersécurité</div>
             <nav>
+                <button id="menu-toggle" class="hamburger-btn" aria-label="Ouvrir le menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#apropos">À propos</a></li>
@@ -24,19 +29,33 @@
             </nav>
         </div>
         <footer>
-            <small style="color: #8b949e;">© 2026 - Florian Lattard</small>
+            <small style="color: #8b949e;"> 2026 - Florian Lattard</small>
         </footer>
     </aside>
 
     <main>
-        <section id="accueil">
-            <span class="badge-stage">Recherche de stage de fin d'études (16 semaines)</span>
-            <h2>Hello world!</h2>
-            <p>Actuellement en 3ème année de <strong>BUT Réseaux & Télécommunications</strong> à l'<strong>IUT Nord Franche-Comté</strong>, je me passionne pour la compréhension profonde des systèmes et le durcissement des architectures IT.</p>
-            <p>Découvrez mon parcours académique, mes projets professionnels, ainsi que mes diverses expériences opérationnelles en administration système et gestion de réseaux informatiques.</p>
+        <section id="accueil" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 40px 20px; box-sizing: border-box;">
+            <span class="badge-stage" style="margin-bottom: 20px;">⚡ Recherche de stage de fin d'études - 16 semaines</span>
+            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 0 0 20px 0; font-weight: 800; line-height: 1.2;">
+                Hello world! Je suis <span style="color: var(--accent-blue, #007bff);">Florian Lattard</span>.
+            </h1>
+            <h3 style="font-size: clamp(1.2rem, 3vw, 1.8rem); margin: 0 0 25px 0; font-weight: 500; color: var(--text-muted, #6c757d);">
+                Futur professionnel en système & sécurité informatique.
+            </h3>
+            <div style="max-width: 650px; font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px;">
+                <p>Je m’appelle <strong>Florian Lattard</strong>, je suis étudiant en 3ème année de <strong>BUT Réseaux & Télécommunications</strong> à l'<strong>IUT Nord Franche-Comté</strong>, spécialisé en <strong>Cybersécurité</strong>. Mon quotidien consiste à explorer les systèmes informatiques, configurer des infrastructures et apprendre à les sécuriser.</p>
+                <p><strong>Défilez vers le bas</strong> pour plonger dans mon univers technique, découvrir mes projets concrets, mon parcours et mes expériences sur le terrain !</p>
+            </div>
+            <div class="scroll-down-indicator" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; user-select: none;">
+                <span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--text-muted, #6c757d); opacity: 0.8;">Découvrir mon parcours</span>
+                <div class="arrows-container" style="display: flex; flex-direction: column; align-items: center;">
+                    <span class="arrow" style="font-size: 24px; color: var(--accent-blue, #007bff); line-height: 12px; animation: bounce 2s infinite;">↓↓↓</span>
+                </div>
+            </div>
         </section>
 
-        <section id="apropos">
+
+        <section id="apropos" overflow: hidden;>
             <h2>À propos</h2>
             <p>Le domaine de l’informatique est tellement vaste, mais c'est précisément ce que j'aime ! Ce qui m'attire, c'est de décortiquer les systèmes pour comprendre exactement comment ils tournent, comment ils ont été faits et pourquoi.</p>
             <p>Ce qui m'aide le plus, c'est de passer de la théorie à la pratique. Que ce soit lors de mes projets personnels, à l'école, ou sur le terrain en stage au sein d'une ESN, ma démarche reste d'installer, configurer et administrer différents environnements. Mais ce n'est qu'un début. Je souhaite constamment aller plus loin : approfondir ce que je maîtrise déjà, mais aussi explorer ce que je ne connais pas encore.</p>
@@ -283,6 +302,22 @@ document.querySelectorAll('.js-copy-btn').forEach(button => {
         }).catch(err => {
             console.error('Erreur lors de la copie : ', err);
         });
+    });
+});
+</script>
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('.votre-bandeau'); // Remplacez par votre sélecteur
+
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('menu-open');
+});
+
+// Optionnel : Ferme le menu automatiquement si on clique sur un lien du menu
+const menuLinks = document.querySelectorAll('.votre-bandeau a');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('menu-open');
     });
 });
 </script>
