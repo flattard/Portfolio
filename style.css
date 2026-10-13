@@ -200,7 +200,6 @@ p {
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-main);
-    max-width: 850px;
     margin-bottom: 15px;
 }
 
