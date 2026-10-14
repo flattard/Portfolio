@@ -38,7 +38,7 @@
 
 
     <main>
-        <section id="accueil" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 40px 20px; box-sizing: border-box;">
+        <section id="accueil" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 40px 20px; box-sizing: border-box;" overflow: hidden;>
             <span class="badge-stage" style="margin-bottom: 20px;">⚡ Recherche de stage de fin d'études - 16 semaines</span>
             <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin: 0 0 20px 0; font-weight: 800; line-height: 1.2;">
                 Hello world! Je suis <span style="color: var(--accent-blue, #007bff);">Florian Lattard</span>.
@@ -46,8 +46,8 @@
             <h3 style="font-size: clamp(1.2rem, 3vw, 1.8rem); margin: 0 0 25px 0; font-weight: 500; color: var(--text-muted, #6c757d);">
                 Futur professionnel en système & sécurité informatique.
             </h3>
-            <div style="max-width: 650px; font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px;">
-                <p>Je m’appelle <strong>Florian Lattard</strong>, je suis étudiant en 3ème année de <strong>BUT Réseaux & Télécommunications</strong> à l'<strong>IUT Nord Franche-Comté</strong>, spécialisé en <strong>Cybersécurité</strong>. Mon quotidien consiste à explorer les systèmes informatiques, configurer des infrastructures et apprendre à les sécuriser.</p>
+            <div style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px;">
+                <p>Je m'appelle <strong>Florian Lattard</strong>, je suis étudiant en 3ème année de <strong>BUT Réseaux & Télécommunications</strong> à l'<strong>IUT Nord Franche-Comté</strong>, spécialisé en <strong>Cybersécurité</strong>.<br>Mon quotidien consiste à explorer les systèmes informatiques, configurer des infrastructures et apprendre à les sécuriser.</p>
                 <p><strong>Défilez vers le bas</strong> pour plonger dans mon univers technique, découvrir mes projets concrets, mon parcours et mes expériences sur le terrain !</p>
             </div>
             <div class="scroll-down-indicator" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; user-select: none;">
@@ -61,9 +61,9 @@
 
         <section id="apropos" overflow: hidden;>
             <h2>À propos</h2>
-            <p>Le domaine de l’informatique est tellement vaste, mais c'est précisément ce que j'aime ! Ce qui m'attire, c'est de décortiquer les systèmes pour comprendre exactement comment ils tournent, comment ils ont été faits et pourquoi.</p>
+            <p>Le domaine de l'informatique est tellement vaste, mais c'est précisément ce que j'aime ! Ce qui m'attire, c'est de décortiquer les systèmes pour comprendre exactement comment ils tournent, comment ils ont été faits et pourquoi.</p>
             <p>Ce qui m'aide le plus, c'est de passer de la théorie à la pratique. Que ce soit lors de mes projets personnels, à l'école, ou sur le terrain en stage au sein d'une ESN, ma démarche reste d'installer, configurer et administrer différents environnements. Mais ce n'est qu'un début. Je souhaite constamment aller plus loin : approfondir ce que je maîtrise déjà, mais aussi explorer ce que je ne connais pas encore.</p>
-            <p>C’est cette volonté de progresser qui m’a conduit à l’IUT Nord Franche-Comté. Je veux atteindre un niveau de connaissances techniques pour ne plus buter sur les blocages, mais être capable de trouver une solution, voire de la créer moi-même. Je suis sûr que c’est en se frottant aux pannes et par la réflexion qu'on y apporte que l’on grandit réellement en compétences.</p>
+            <p>C'est cette volonté de progresser qui m'a conduit à l'IUT Nord Franche-Comté. Je veux atteindre un niveau de connaissances techniques pour ne plus buter sur les blocages, mais être capable de trouver une solution, voire de la créer moi-même. Je suis sûr que c'est en se frottant aux pannes et par la réflexion qu'on y apporte que l'on grandit réellement en compétences.</p>
             
             <p><strong>### --- OBJECTIF STAGE ---</strong><br>
             Aujourd'hui, je cherche un stage de fin d'études de 16 semaines pour mettre en pratique mes acquis et les enseignements de mon BUT3 R&T Cyber. Mon but est de mettre cette énergie au service de vos objectifs techniques et de votre entreprise. C'est en faisant équipe que nous ferons face aux problématiques que nous rencontrerons sur le terrain.</p>
@@ -211,49 +211,74 @@
                     <span class="timeline-date">15 Mars 2027 - 02 Juillet 2027 (16 semaines)</span>
                     <div class="timeline-title">En recherche de stage de fin d'études</div>
                     <div class="timeline-institution">Valence/Montbéliard ou prêt à déménager</div>
-                    <p style="font-size: 14px;">Cette année, je recherche un stage technique de <strong>16 semaines du 15 Mars 2027 au 02 Juillet 2027</strong>. Actuellement sur les secteurs de <strong>Valence</strong> et de <strong>Montbéliard</strong>, et je suis prêt à déménager pour toute autre opportunité géographique.</p>
+                    <p style="font-size: 14px; margin-bottom: 10px;">
+                        Actuellement en <strong>BUT3 RT (Réseaux et Télécommunications)</strong>, dans le parcours <strong>Cybersécurité</strong>, je recherche un stage technique de 16 semaines (<strong>du 15 Mars au 02 Juillet 2027</strong>). Basé sur Valence et Montbéliard, et je suis <strong>totalement prêt à déménager</strong> pour toute opportunité géographique.
+                    </p>
+
+                    <p style="font-size: 14px; margin-bottom: 5px;">Missions possibles basées sur le référentiel de compétences national :</p>
+                    <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
+                        <li><strong>Cybersécurité :</strong> Analyse des risques d'attaques, application des préconisations de l'<strong>ANSSI</strong>, mise en conformité <strong>RGPD</strong>, initiation au pentesting et méthodologies d'audit de sécurité.</li>
+                        <li><strong>Administration & Réseaux :</strong> Gestion d'infrastructures informatiques critiques et déploiement de services d'annuaires avancés.</li>
+                        <li><strong>Connectivité & Télécoms :</strong> Mise en œuvre d'accès distants sécurisés (VPN), interconnexions multi-sites, gestion de la téléphonie sur IP (ToIP/VoIP) et déploiement de réseaux sans fil d'entreprise.</li>
+                        <li><strong>Programmation & Web :</strong> Création d'outils et d'applications informatiques dédiés aux réseaux, technologies du Web, et automatisation des tâches d'administration système par scripting.</li>
+                        <li><strong>Compétences Transverses :</strong> Gestion de projet informatique, maîtrise du droit de l'informatique, anglais professionnel technique, et collaboration rigoureuse en équipe.</li>
+                    </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">27 Mai 2024 - 06 Juillet 2024 (6 semaines)</span>
                     <div class="timeline-title">PFMP - Technicien IT</div>
                     <div class="timeline-institution">MegaO Informatique - Valence</div>
-                    <p style="font-size: 14px; margin-bottom: 10px;">Missions axées sur l'infrastructure critique et l'automatisation logicielle :</p>
                     <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
-                        <li><strong>Serveurs & Virtualisation :</strong> Administration Hyper-V, configurations RAID 1/5, création/migration de VMs. Maintenance AD, DHCP, DNS, RDS et serveurs Exchange.</li>
-                        <li><strong>Réseaux & Sécurité :</strong> Switches, VLANs, VoIP. Gestion VPN (Stormshield, Fortinet, OpenVPN) et déploiements cyber (Kaspersky, Tehtris EDR, ESET, SentinelOne).</li>
-                        <li><strong>Automatisation & Restauration :</strong> Scripting (Robocopy, PowerShell pour export DHCP), sauvegardes Veeam Backup, déploiement automatisé via MDT / PXE Boot.</li>
-                        <li><strong>Gestion :</strong> Prise de responsabilités (encadrement de stagiaires), interventions sur site client et assistance SAV à distance (TeamViewer/AnyDesk).</li>
+                        <li><strong>Serveurs :</strong>Installation d'infrastructures IT, mise en place et maintenance de rôles serveurs (<strong>AD DS, DHCP, DNS, RDS, Exchange</strong>).</li>
+                        <li><strong>Virtualisation :</strong> Gestion globale des serveurs et virtualisation sous <strong>Hyper-V</strong>, incluant la création et la migration de machines virtuelles.</li>
+                        <li><strong>Réseaux :</strong> Visualisation des configurations switches, routeurs avec <strong>VLAN</strong>. Branchement de la téléphonie <strong>VoIP</strong> et gestion de connexions <strong>VPN</strong> sécurisées via <strong>Stormshield, Fortinet</strong> et <strong>OpenVPN</strong>.</li>
+                        <li><strong>Cybersécurité :</strong> Durcissement des pare-feu d'entreprise et déploiement de solutions de détection et réponse aux menaces <strong>EDR/XDR</strong> (<strong>Tehtris EDR, SentinelOne</strong>).</li>
+                        <li><strong>Sauvegardes & Scripting :</strong> Découverte des stratégies de sauvegardes et restauration pro (cloud) via <strong>Veeam Backup</strong>, scripting et automatisation avancée (<strong>PowerShell</strong>, transferts via <strong>Robocopy</strong>).</li>
+                        <li><strong>Flotte Réseau & Logiciels :</strong> Déploiement de postes (Windows 11, logiciels métiers) et gestion des périphériques (tablettes, imprimantes réseau et bornes Wi-Fi via <strong>Ubiquiti UniFi Controller</strong>).</li>
+                        <li><strong>Responsabilités :</strong> Autonomie et prise de responsabilités en <strong>encadrant d'autres stagiaires</strong>, relation client sur site et suivi des procédures (bons de livraison, étiquetage).</li>
+                        <li><strong>Soft Skills :</strong> Capacité d'analyse et résolution rapide de problèmes complexes (drivers réseau, contraintes d'installation), polyvalence sur divers environnements IT (réseaux, serveurs, postes clients), capacité à rester efficace sous pression.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">21 Nov. 2022 - 28 Janv. 2023 (8 semaines)</span>
                     <div class="timeline-title">PFMP - Technicien IT</div>
                     <div class="timeline-institution">MegaO Informatique - Valence</div>
-                    <p style="font-size: 14px; margin-bottom: 10px;">Immersion orientée intégration et monitoring réseau :</p>
                     <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
-                        <li><strong>Infrastructure & Stockage :</strong> Déploiement matériel de serveurs (Lenovo ST250 V2), migration Active Directory (AD DS, DNS, DHCP) et configuration de NAS Synology (Active Backup, RAID).</li>
-                        <li><strong>Supervision :</strong> Gestion d'alertes via PRTG Network Monitor.</li>
-                        <li><strong>Soutien Technique :</strong> Utilisation d'outils avancés de récupération (Hiren's BootCD, Lazesoft), gestion de flottes via Ubiquiti UniFi Controller et administration Microsoft 365.</li>
+                        <li><strong>Administration Serveurs & Réseaux :</strong> Déploiement et configuration de serveurs <strong>Lenovo</strong>, migration d'<strong>Active Directory</strong>, administration système et réseau (<strong>AD DS, DNS, DHCP</strong>), gestion de la connectivité (<strong>Ethernet</strong>, <strong>Wi-Fi</strong>, configuration IP, DHCP statique) sur environnements Windows Server et clients Windows.</li>
+                        <li><strong>Industrialisation :</strong> Déploiement automatisé via <strong>MDT</strong> et <strong>PXE Boot</strong>, gestion d'images systèmes, migration Windows (préparation et personnalisation d'images).</li>
+                        <li><strong>Sauvegardes & Supervision :</strong> Sauvegarde et restauration de données sur <strong>NAS Synology</strong> via <strong>Active Backup</strong> et configurations <strong>RAID</strong>, ainsi que supervision réseau via <strong>PRTG</strong>.</li>
+                        <li><strong>Sécurité, Outils & Télémaintenance :</strong> Sécurité informatique de base, configuration antivirus, pare-feu, utilisation d'outils de diagnostic et de récupération (<strong>Hiren's BootCD</strong>, <strong>Lazesoft Password Recovery</strong>), commandes système (<strong>CMD/DOS</strong>) et suivi télémaintenance (<strong>TeamViewer</strong>, <strong>AnyDesk</strong>).</li>
+                        <li><strong>Cloud, Suivi & Soft Skills :</strong> Gestion <strong>Microsoft 365</strong> (OneDrive, SharePoint), récupération, reconditionnement de matériel obsolète, tri d'occasion, suivi d'inventaire (fiches clients), rigueur dans la <strong>documentation technique</strong>, travail en équipe (techniciens, alternants, stagiaires), sens du service client, adaptabilité et prise d'initiative.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">02 Mai 2022 - 25 Juin 2022 (8 semaines)</span>
                     <div class="timeline-title">PFMP - Technicien IT</div>
                     <div class="timeline-institution">MegaO Informatique - Valence</div>
-                    <p style="font-size: 14px;">Première approche professionnelle en entreprise : maintenance d'infrastructures informatiques et réseaux d'entreprises, préparation minutieuse de matériels clients et assistance technique SAV.</p>
+                    <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
+                        <li><strong>Maintenance Matérielle & Périphériques :</strong> Maintenance d'ordinateurs et d'équipements périphériques pour les professionnels, diagnostic matériel, réparation, remplacement de composants, assemblage de postes et gestion des périphériques (imprimantes, scanners).</li>
+                        <li><strong>Systèmes, Logiciels & Sauvegardes :</strong> Installation, configuration et mise à jour de systèmes d'exploitation <strong>Windows</strong> et logiciels de base, gestion des sauvegardes et restauration de données utilisateurs.</li>
+                        <li><strong>Support Client & Normes :</strong> Suivi du support utilisateur et assistance technique en atelier (<strong>assistance SAV</strong>), respect des procédures, des normes de maintenance IT et des consignes de sécurité liées au matériel informatique.</li>
+                        <li><strong>Soft Skills :</strong> Sens de l'analyse, résolution de problèmes, attention aux détails, patience et persévérance face aux pannes complexes.</li>
+                    </ul>
                 </div>
                 <div class="timeline-item">
                     <span class="timeline-date">17 Mai 2021 - 26 Juin 2021 (6 semaines)</span>
                     <div class="timeline-title">PFMP - Dépannage IT</div>
                     <div class="timeline-institution">TEDI 07 - Charmes-sur-Rhône</div>
-                    <p style="font-size: 14px;">Découverte terrain : diagnostic matériel, assemblage hardware de postes clients, résolution de pannes complexes, gestion de sauvegardes locales et apprentissage du respect des normes électriques en atelier.</p>
+                    <ul style="list-style-type: disc; margin-left: 20px; font-size: 14px; color: #8b949e; line-height: 1.6;">
+                        <li><strong>Bases de la Maintenance :</strong> Découverte du diagnostic matériel, initiation à l'assemblage de postes et remplacement de composants simples (disques durs, <strong>RAM</strong>, cartes graphiques).</li>
+                        <li><strong>Systèmes & Périphériques :</strong> Assistance à l'installation de <strong>Windows</strong>, mises à jour logicielles de base et configuration d'imprimantes ou scanners.</li>
+                        <li><strong>Service de Proximité :</strong> Support utilisateur en atelier, initiation aux outils de diagnostic hardware/software et sensibilisation aux consignes de sécurité.</li>
+                        <li><strong>Soft Skills :</strong> Curiosité technique, écoute des besoins des clients, patience face aux pannes et respect de la <strong>documentation technique</strong>.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="contact">
             <h2>Me contacter</h2>
-            <p class="contact-lead">Je recherche activement mon stage de fin d'études (16 semaines) - Mobile dans toute la France, avec une préférence pour les secteurs de Valence et Montbéliard. Vous avez un projet, une opportunité ou juste envie d'échanger ?</p>
+            <p class="contact-lead">Je recherche activement mon stage de fin d'études (16 semaines) - Mobile et prêt à déménager dans toute la France, avec une préférence pour les secteurs de Valence et Montbéliard. Vous avez un projet, une opportunité ou juste envie d'échanger ?</p>
             <div class="contact-box">
                 <div class="contact-methods">
                     <a class="contact-btn js-copy-btn" data-copy="lattardf.pro@gmail.com" title="Copier l'adresse email">
