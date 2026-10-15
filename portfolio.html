@@ -124,9 +124,16 @@
                             <span class="tag">Responsive</span>
                             <span class="tag">AI / LLM</span>
                         </div>
-                            <p>Développement de ce portfolio responsive pour centraliser et valoriser mes compétences et projets techniques en Réseaux, Systèmes et Cybersécurité. L'objectif était de concevoir une vitrine propre et professionnelle.</p>
-                            <p>J'ai "vibcodé" l'interface en HTML et CSS en m'aidant de l'intelligence artificielle. J'ai essayé de garantir une adaptabilité sur tous les écrans (mobile et desktop). En parrallèle ce projet m'a permis d'expérimenter et de comparer divers agents IA et modèles de langage (LLM), que ce soit via des API en ligne ou déployés localement sur ma machine. L'ensemble du projet est entièrement versionné avec Git et synchronisé sur GitHub.</p>
-                            <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Évolutions envisagées : Héberger le site autrement pour s'affranchir des limites du statique de GitHub Pages, permettant ainsi d'intégrer du code dynamique (PHP, Python).</em></p>
+                        <picture>
+                            <source srcset="./assets/visuel_portfolio.webp" type="image/webp">
+                            <img src="./assets/visuel_portfolio.webp" 
+                                 alt="Capture d'écran de la page d'accueil du portfolio" 
+                                 class="project-img"
+                                 loading="lazy">
+                        </picture>
+                        <p>Développement de ce portfolio responsive pour centraliser et valoriser mes compétences et projets techniques en Réseaux, Systèmes et Cybersécurité. L'objectif était de concevoir une vitrine propre et professionnelle.</p>
+                        <p>J'ai "vibcodé" l'interface en HTML et CSS en m'aidant de l'intelligence artificielle. J'ai essayé de garantir une adaptabilité sur tous les écrans (mobile et desktop). En parrallèle ce projet m'a permis d'expérimenter et de comparer divers agents IA et modèles de langage (LLM), que ce soit via des API en ligne ou déployés localement sur ma machine. L'ensemble du projet est entièrement versionné avec Git et synchronisé sur GitHub.</p>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Évolutions envisagées : Héberger le site autrement pour s'affranchir des limites du statique de GitHub Pages, permettant ainsi d'intégrer du code dynamique (PHP, Python).</em></p>
                     </div>
                     <div class="project-links">
                         <a href="https://flattard.github.io/Portfolio" class="btn-sm">🔗 Lien actuel</a>
@@ -144,6 +151,13 @@
                             <span class="tag">Bash / Cron</span>
                             <span class="tag">Agile / Trello</span>
                         </div>
+                        <picture>
+                            <source srcset="./assets/visuel_pfSense.webp" type="image/webp">
+                            <img src="./assets/visuel_pfSense.webp" 
+                                 alt="Capture d'écran de la page d'accueil du portfolio" 
+                                 class="project-img"
+                                 loading="lazy">
+                        </picture>
                         <p>Dans le cadre de mon BUT3 Réseaux & Télécoms, j'ai piloté un projet en équipe de 5 en imaginant l'infrastructure réseau et système d'un hôpital accueillant 30 lits. Le cahier des charges a évolué en cours de projet, nous avons travaillé en méthode Agile. On avançait par étape, on testait et validait, avant de passer à la suivante.</p>
                         <p>Pour préparer ce projet, j'ai co-rédigé le cahier des charges, dessiné le diagramme d'architecture global et établi le plan d'adressage IP et des VLANs. Dans ma partie, j'ai déployé un cluster HA de 2 firewalls pfSense en mode Maître/Backup avec synchronisation d'états et de configuration. J'ai segmenté le réseau en 9 VLANs isolés avec des règles de filtrage, et configuré les IP virtuelles CARP qui servent de passerelles communes. J'ai aussi écrit deux scripts Bash pour automatiser les sauvegardes : un script backup quotidien via Cron + SSH vers un serveur web distant qui a une BDD, et un second script pour la restauration.</p>
                         <p style="font-size: 13px; color: var(--text-muted); margin-top: 10px;"><em>Évolutions envisagées : NAT, VPN site-à-site, DHCP Relay, DNS Forwarder sur pfSense.</em></p>
@@ -163,6 +177,13 @@
                             <span class="tag">udev rules</span>
                             <span class="tag">SNMP Trap</span>
                         </div>
+                        <picture>
+                            <source srcset="./assets/visuel_usb.webp" type="image/webp">
+                            <img src="./assets/visuel_usb.webp" 
+                                 alt="Capture d'écran de la page d'accueil du portfolio" 
+                                 class="project-img"
+                                 loading="lazy">
+                        </picture>
                         <p>Développé dans le cadre d'un devoir pour m'entraîner sur l'environnement Linux, le scripting Bash et découvrir les règles udev. Ce projet protège un poste Linux en bloquant instantanément l'accès à tout périphérique de stockage USB non autorisé dès son branchement.</p>
                         <p>J'ai créé une règle udev associée à un script Bash qui intercepte l'insertion de n'importe quel périphérique de stockage USB. Le système autorise l'accès si le périphérique est présent dans une whitelist. Sinon, il déclenche un blocage matériel immédiat au niveau du Kernel (via le fichier authorized) et envoie une alerte SNMP (trap) au SOC. Tout est également journalisé localement dans un fichier .log.</p>
                     </div>

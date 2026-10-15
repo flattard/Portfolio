@@ -843,3 +843,25 @@ html.light-theme .btn {
         gap: 8px;
     }
 }
+
+/* Image projet */
+.project-card picture {
+    display: block;
+    margin: 1rem 0 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg);
+}
+.project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform .3s ease;
+}
+.project-img:hover {
+    transform: scale(1.015);
+}
+@media (max-width: 768px) {
+    .project-card picture { margin: .75rem 0 1rem; }
+}
